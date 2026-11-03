@@ -1,0 +1,29 @@
+<!-- @name: Input | @desc: Label selalu terlihat (bukan placeholder). Error ditandai warna, garis kiri, ikon, dan teks. State: default, focus, error (aria-invalid), disabled. -->
+<div class="grid max-w-xl gap-6">
+  <div class="k-field">
+    <label class="k-label" for="in-name">Nama lengkap</label>
+    <input class="k-input" id="in-name" placeholder="Budi Santoso" autocomplete="name">
+  </div>
+  <div class="k-field">
+    <label class="k-label" for="in-email">Email kantor</label>
+    <input class="k-input" id="in-email" type="email" value="budi@perusahaan" aria-invalid="true" aria-describedby="in-email-err">
+    <p class="k-error-text" id="in-email-err"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6v5M10 14h.01"/></svg>Masukkan email lengkap, misalnya nama@perusahaan.co.id</p>
+  </div>
+  <div class="k-field">
+    <label class="k-label" for="in-area">Kebutuhan luas <span class="k-label-optional">(opsional)</span></label>
+    <input class="k-input" id="in-area" inputmode="numeric" placeholder="5.000" aria-describedby="in-area-hint">
+    <p class="k-hint" id="in-area-hint">Dalam meter persegi. Perkiraan juga tidak apa-apa.</p>
+  </div>
+  <div class="k-field">
+    <label class="k-label" for="in-type">Jenis properti</label>
+    <select class="k-select" id="in-type"><option>Lahan industri</option><option>Gudang siap pakai</option><option>Pabrik, kantor, atau function hall</option></select>
+  </div>
+  <div class="k-field">
+    <label class="k-label" for="in-msg">Pesan</label>
+    <textarea class="k-textarea" id="in-msg" placeholder="Ceritakan jenis industri dan rencana waktu operasional"></textarea>
+  </div>
+  <div class="k-field">
+    <label class="k-label" for="in-dis">Kode referensi</label>
+    <input class="k-input" id="in-dis" value="Terisi otomatis" disabled>
+  </div>
+</div>

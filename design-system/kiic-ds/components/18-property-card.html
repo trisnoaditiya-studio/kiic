@@ -1,0 +1,27 @@
+<!-- @name: Property card | @desc: Kartu properti dengan status (tersedia, terbatas, penuh). Status "penuh" meredupkan gambar dan tetap bisa dibuka untuk daftar tunggu. Data di bawah adalah contoh. -->
+<div class="grid gap-6 md:grid-cols-3">
+  <article class="k-property" data-status="tersedia">
+    <div class="k-card-media k-masterplan-pattern" role="img" aria-label="Foto gudang (placeholder)"></div>
+    <div class="k-card-body">
+      <div class="flex flex-wrap gap-2"><span class="k-badge k-badge-info">Gudang</span><span class="k-badge k-badge-success k-badge-dot">Tersedia</span></div>
+      <h3 class="k-card-title"><a class="k-stretched" href="#" style="color:inherit;text-decoration:none">Gudang siap pakai, Blok A</a></h3>
+      <dl class="k-property-meta"><div><dt>Luas bangunan</dt><dd>5.000 m²</dd></div><div><dt>Tinggi bersih</dt><dd>10 m</dd></div></dl>
+    </div>
+  </article>
+  <article class="k-property" data-status="terbatas">
+    <div class="k-card-media k-masterplan-pattern" role="img" aria-label="Foto unit kantor (placeholder)"></div>
+    <div class="k-card-body">
+      <div class="flex flex-wrap gap-2"><span class="k-badge k-badge-info">Kantor</span><span class="k-badge k-badge-warning k-badge-dot">Terbatas</span></div>
+      <h3 class="k-card-title"><a class="k-stretched" href="#" style="color:inherit;text-decoration:none">Unit kantor Graha KIIC</a></h3>
+      <dl class="k-property-meta"><div><dt>Luas</dt><dd>120 m²</dd></div><div><dt>Lantai</dt><dd>2</dd></div></dl>
+    </div>
+  </article>
+  <article class="k-property" data-status="penuh">
+    <div class="k-card-media k-masterplan-pattern" role="img" aria-label="Foto pabrik (placeholder)"></div>
+    <div class="k-card-body">
+      <div class="flex flex-wrap gap-2"><span class="k-badge k-badge-info">Pabrik</span><span class="k-badge k-badge-danger k-badge-dot">Penuh</span></div>
+      <h3 class="k-card-title"><a class="k-stretched" href="#" style="color:inherit;text-decoration:none">Pabrik standar, Blok C</a></h3>
+      <dl class="k-property-meta"><div><dt>Luas bangunan</dt><dd>2.400 m²</dd></div><div><dt>Daftar tunggu</dt><dd>Dibuka</dd></div></dl>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,268 @@
+/* KIIC Design System — entry CSS. Build: npm run build
+   Aturan: tidak ada hex di file ini. Semua nilai lewat token (utility Tailwind atau var()). */
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-family: var(--font-sans); color: var(--color-fg-primary); background: var(--color-surface-page);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { @apply text-body-md; }
+  h1 { @apply text-h1; } h2 { @apply text-h2; } h3 { @apply text-h3; }
+  h4 { @apply text-h4; } h5 { @apply text-h5; } h6 { @apply text-h6; }
+  a { color: var(--color-fg-link); text-underline-offset: 0.2em; }
+  a:hover { color: var(--color-fg-link-hover); }
+  :focus-visible { outline: 2px solid var(--color-line-focus); outline-offset: 2px; }
+  .k-on-dark :focus-visible { outline-color: var(--color-line-focus-inverse); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  /* ---------- Layout ---------- */
+  .k-container { @apply mx-auto w-full max-w-container; padding-inline: var(--space-gutter); }
+  .k-section { padding-block: var(--space-section-y); }
+  .k-section-brand { @apply bg-surface-brand text-fg-inverse; }
+  .k-num { font-feature-settings: var(--font-numeric); }
+  .k-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- Typography helpers ---------- */
+  .k-lead { @apply text-body-lg text-fg-secondary max-w-measure; }
+  .k-prose { @apply max-w-measure text-body-md text-fg-primary; }
+  .k-prose > * + * { margin-top: var(--space-4); }
+  .k-prose h2 + *, .k-prose h3 + * { margin-top: var(--space-3); }
+  .k-section-head { @apply mb-10 grid gap-4 lg:mb-12 lg:grid-cols-12 lg:items-end; }
+  .k-section-head > :first-child { @apply lg:col-span-7; }
+  .k-section-head > :nth-child(2) { @apply text-body-lg text-fg-secondary lg:col-span-5; }
+
+  /* ---------- Button ---------- */
+  .k-btn { @apply inline-flex items-center justify-center gap-2 rounded px-5 text-label transition-colors duration-fast;
+    min-height: 44px; border: 1px solid transparent; text-decoration: none; cursor: pointer; white-space: nowrap; }
+  .k-btn-sm { @apply px-3 text-body-sm; min-height: 36px; font-weight: 600; }
+  .k-btn-lg { @apply px-7 text-body-md; min-height: 52px; font-weight: 600; }
+  .k-btn-primary { @apply bg-action-primary text-fg-inverse; }
+  .k-btn-primary:hover { @apply bg-action-primary-hover text-fg-inverse; }
+  .k-btn-primary:active { @apply bg-action-primary-active; }
+  .k-btn-secondary { @apply bg-action-secondary text-fg-inverse; }
+  .k-btn-secondary:hover { @apply bg-action-secondary-hover text-fg-inverse; }
+  .k-btn-secondary:active { @apply bg-action-secondary-active; }
+  .k-btn-outline { @apply border-action-secondary bg-transparent text-action-secondary; }
+  .k-btn-outline:hover { @apply bg-navy-50 text-action-secondary-hover; }
+  .k-btn-ghost { @apply bg-transparent text-fg-link; }
+  .k-btn-ghost:hover { @apply bg-action-ghost-hover; }
+  .k-btn-inverse { @apply border-fg-inverse bg-transparent text-fg-inverse; }
+  .k-btn-inverse:hover { @apply bg-fg-inverse text-surface-brand; }
+  .k-btn:disabled, .k-btn[aria-disabled='true'] { @apply cursor-not-allowed border-transparent bg-action-disabled text-fg-disabled; }
+  .k-btn[aria-busy='true'] { cursor: progress; }
+  .k-btn[aria-busy='true']::before { content: ''; width: 1em; height: 1em; border-radius: 9999px;
+    border: 2px solid currentColor; border-right-color: transparent; animation: k-spin 0.7s linear infinite; }
+  @keyframes k-spin { to { transform: rotate(360deg); } }
+  .k-icon { width: 1.25em; height: 1.25em; flex: none; }
+
+  /* ---------- Form field ---------- */
+  .k-field { @apply grid content-start gap-2; }
+  .k-label { @apply text-label text-fg-primary; }
+  .k-label-optional { @apply text-caption font-medium text-fg-muted; }
+  .k-input, .k-select, .k-textarea { @apply w-full rounded border border-line-strong bg-surface-page text-body-md text-fg-primary transition-colors duration-fast;
+    min-height: 44px; }
+  .k-input, .k-select, .k-textarea { padding-inline: var(--space-3); }
+  .k-textarea { @apply py-3; min-height: 120px; resize: vertical; }
+  .k-select { appearance: none; padding-right: var(--space-10);
+    background-image: linear-gradient(45deg, transparent 50%, var(--color-fg-secondary) 50%), linear-gradient(135deg, var(--color-fg-secondary) 50%, transparent 50%);
+    background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+  .k-input::placeholder, .k-textarea::placeholder { color: var(--color-fg-muted); }
+  .k-input:hover, .k-select:hover, .k-textarea:hover { @apply border-steel-400; }
+  .k-input:focus-visible, .k-select:focus-visible, .k-textarea:focus-visible { outline: 2px solid var(--color-line-focus); outline-offset: 0; border-color: var(--color-line-focus); }
+  .k-input[aria-invalid='true'], .k-select[aria-invalid='true'], .k-textarea[aria-invalid='true'] { @apply border-status-danger-line; box-shadow: inset 3px 0 0 var(--color-status-danger-line); }
+  .k-input:disabled, .k-select:disabled, .k-textarea:disabled { @apply cursor-not-allowed border-line bg-surface-muted text-fg-disabled; }
+  .k-hint { @apply text-caption text-fg-secondary; }
+  .k-error-text { @apply flex items-start gap-2 text-caption text-status-danger-fg; font-weight: 600; }
+  .k-check { @apply flex items-start gap-3 text-body-md; cursor: pointer; }
+  .k-check input { @apply mt-1 h-5 w-5 flex-none cursor-pointer; accent-color: var(--color-action-secondary); }
+  .k-check input:disabled { cursor: not-allowed; }
+  .k-check:has(input:disabled) { @apply text-fg-disabled; cursor: not-allowed; }
+  .k-fieldset { @apply grid gap-3; }
+  .k-fieldset legend { @apply mb-1 text-label; }
+  .k-error-summary { @apply rounded border border-status-danger-line bg-status-danger-bg p-4 text-body-sm text-status-danger-fg; border-left-width: 4px; }
+
+  /* ---------- Badge ---------- */
+  .k-badge { @apply inline-flex items-center gap-2 rounded px-2 py-0.5 text-caption; font-weight: 600; border: 1px solid transparent; }
+  .k-badge-neutral { @apply border-line bg-surface-subtle text-fg-secondary; }
+  .k-badge-info { @apply border-status-info-line bg-status-info-bg text-status-info-fg; }
+  .k-badge-success { @apply border-status-success-line bg-status-success-bg text-status-success-fg; }
+  .k-badge-warning { @apply border-status-warning-line bg-status-warning-bg text-status-warning-fg; }
+  .k-badge-danger { @apply border-status-danger-line bg-status-danger-bg text-status-danger-fg; }
+  .k-badge-dot::before { content: ''; width: 6px; height: 6px; border-radius: 9999px; background: currentColor; }
+
+  /* ---------- Card ---------- */
+  .k-card { @apply flex flex-col overflow-hidden rounded border border-line bg-surface-page; }
+  .k-card-media { @apply bg-surface-muted; aspect-ratio: 16 / 10; }
+  .k-card-media img { width: 100%; height: 100%; object-fit: cover; }
+  .k-card-body { @apply flex flex-1 flex-col gap-3 p-6; }
+  .k-card-title { @apply text-h4 text-fg-primary; }
+  .k-card-text { @apply text-body-sm text-fg-secondary; }
+  .k-card-footer { @apply mt-auto pt-2; }
+  .k-card-link { @apply transition-colors duration-fast; position: relative; }
+  .k-card-link:hover { @apply border-action-secondary; }
+  .k-card-link a.k-stretched::after { content: ''; position: absolute; inset: 0; }
+  .k-card-link:focus-within { outline: 2px solid var(--color-line-focus); outline-offset: 2px; }
+  .k-card-link a.k-stretched:focus-visible { outline: none; }
+
+  /* ---------- Navbar + Mega menu ---------- */
+  .k-nav { @apply sticky top-0 z-nav border-b border-line bg-surface-page; }
+  .k-nav-inner { @apply k-container flex h-nav items-center gap-8; }
+  .k-nav-logo { @apply flex items-center gap-3 text-h6 text-fg-primary; text-decoration: none; }
+  .k-nav-logo-mark { @apply grid h-10 w-10 place-items-center rounded bg-surface-brand text-label text-fg-inverse; }
+  .k-nav-menu { @apply hidden flex-1 items-center gap-1 lg:flex; }
+  .k-nav-link { @apply inline-flex h-nav items-center gap-2 px-3 text-label text-fg-primary; text-decoration: none; background: none; border: 0; cursor: pointer;
+    box-shadow: inset 0 -3px 0 transparent; }
+  .k-nav-link:hover, .k-nav-link[aria-expanded='true'], .k-nav-link[aria-current='page'] { color: var(--color-fg-link); box-shadow: inset 0 -3px 0 var(--color-brand-red); }
+  .k-nav-caret { width: 10px; height: 10px; transition: transform var(--duration-fast); }
+  [aria-expanded='true'] > .k-nav-caret { transform: rotate(180deg); }
+  .k-nav-actions { @apply ml-auto flex items-center gap-2; }
+  .k-nav-toggle { @apply k-btn k-btn-ghost lg:hidden; padding-inline: var(--space-3); }
+  .k-mega { @apply absolute inset-x-0 border-b border-line bg-surface-page shadow-md; top: 100%; }
+  .k-mega[hidden] { display: none; }
+  .k-mega-inner { @apply k-container grid gap-8 py-8 lg:grid-cols-12; }
+  .k-mega-intro { @apply lg:col-span-4; }
+  .k-mega-list { @apply grid gap-1 sm:grid-cols-2 lg:col-span-8; }
+  .k-mega-item { @apply grid gap-1 rounded p-4 transition-colors duration-fast; text-decoration: none; color: var(--color-fg-primary); }
+  .k-mega-item:hover { @apply bg-surface-subtle; color: var(--color-fg-primary); }
+  .k-mega-item strong { @apply text-label; }
+  .k-mega-item span { @apply text-body-sm text-fg-secondary; }
+  .k-mobile-menu { @apply border-t border-line bg-surface-page lg:hidden; }
+  .k-mobile-menu[hidden] { display: none; }
+  .k-mobile-menu a { @apply block border-b border-line px-5 py-4 text-label text-fg-primary; text-decoration: none; }
+  .k-mobile-menu .k-sub a { @apply pl-10 font-medium text-fg-secondary; }
+
+  /* ---------- Breadcrumb ---------- */
+  .k-breadcrumb ol { @apply flex flex-wrap items-center gap-2 text-body-sm text-fg-secondary; list-style: none; padding: 0; margin: 0; }
+  .k-breadcrumb li + li::before { content: '/'; @apply mr-2 text-fg-muted; }
+  .k-breadcrumb a { @apply text-fg-secondary; }
+  .k-breadcrumb [aria-current='page'] { @apply font-semibold text-fg-primary; }
+
+  /* ---------- Dropdown ---------- */
+  .k-dropdown { position: relative; display: inline-block; }
+  .k-dropdown-menu { @apply absolute z-dropdown mt-1 min-w-[14rem] rounded border border-line bg-surface-page p-1 shadow-md; left: 0; top: 100%; }
+  .k-dropdown-menu[hidden] { display: none; }
+  .k-dropdown-item { @apply flex w-full items-center gap-2 rounded px-3 py-2 text-left text-body-sm text-fg-primary; background: none; border: 0; cursor: pointer; text-decoration: none; }
+  .k-dropdown-item:hover, .k-dropdown-item:focus-visible { @apply bg-surface-subtle; outline: none; }
+  .k-dropdown-item[aria-disabled='true'] { @apply cursor-not-allowed text-fg-disabled; }
+  .k-dropdown-item[aria-disabled='true']:hover { background: none; }
+  .k-dropdown-sep { @apply my-1 border-t border-line; }
+
+  /* ---------- Modal (native <dialog>) ---------- */
+  .k-modal { width: min(560px, calc(100vw - 2rem)); @apply rounded-md border-0 bg-surface-page p-0 text-fg-primary shadow-lg; }
+  .k-modal::backdrop { background: var(--color-surface-overlay-modal); }
+  .k-modal-head { @apply flex items-start justify-between gap-4 border-b border-line px-6 py-5; }
+  .k-modal-body { @apply grid gap-4 px-6 py-5; }
+  .k-modal-foot { @apply flex flex-wrap justify-end gap-3 border-t border-line bg-surface-subtle px-6 py-4; }
+  .k-icon-btn { @apply grid h-12 w-12 flex-none place-items-center rounded text-fg-secondary; background: none; border: 0; cursor: pointer; }
+  .k-icon-btn:hover { @apply bg-action-ghost-hover text-fg-primary; }
+
+  /* ---------- Table ---------- */
+  .k-table-wrap { @apply overflow-x-auto rounded border border-line; }
+  .k-table { @apply w-full text-left text-body-sm; border-collapse: collapse; font-feature-settings: var(--font-numeric); }
+  .k-table caption { @apply px-4 py-3 text-left text-caption text-fg-secondary; caption-side: bottom; }
+  .k-table th { @apply bg-surface-subtle px-4 py-3 text-label text-fg-primary; white-space: nowrap; }
+  .k-table td { @apply border-t border-line px-4 py-3 align-top text-fg-primary; }
+  .k-table td.k-num, .k-table th.k-num { text-align: right; }
+  .k-table tbody tr:hover td { @apply bg-surface-subtle; }
+
+  /* ---------- Toast ---------- */
+  .k-toast-region { width: min(400px, calc(100vw - 2rem)); @apply fixed bottom-4 right-4 z-toast grid gap-2; }
+  .k-toast { @apply flex items-start gap-3 rounded border border-line bg-surface-page p-4 text-body-sm shadow-md; border-left-width: 4px; }
+  .k-toast-success { border-left-color: var(--color-status-success-fg); }
+  .k-toast-error { border-left-color: var(--color-status-danger-line); }
+  .k-toast-warning { border-left-color: var(--color-status-warning-line); }
+  .k-toast-info { border-left-color: var(--color-status-info-fg); }
+  .k-toast-title { @apply text-label; }
+  .k-toast-msg { @apply text-fg-secondary; }
+
+  /* ---------- Tabs ---------- */
+  .k-tabs-list { @apply flex gap-1 overflow-x-auto border-b border-line; }
+  .k-tab { margin-bottom: -1px; @apply whitespace-nowrap px-4 py-3 text-label text-fg-secondary; background: none; border: 0; border-bottom: 3px solid transparent; cursor: pointer; }
+  .k-tab:hover { @apply text-fg-primary; }
+  .k-tab[aria-selected='true'] { @apply text-fg-link; border-bottom-color: var(--color-brand-red); }
+  .k-tab:disabled { @apply cursor-not-allowed text-fg-disabled; }
+  .k-tab-panel { @apply pt-6; }
+  .k-tab-panel[hidden] { display: none; }
+
+  /* ---------- Avatar ---------- */
+  .k-avatar { @apply inline-grid flex-none place-items-center overflow-hidden rounded-full bg-navy-100 text-label text-navy-800; width: 40px; height: 40px; }
+  .k-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .k-avatar-sm { width: 32px; height: 32px; @apply text-caption; }
+  .k-avatar-lg { width: 56px; height: 56px; @apply text-h6; }
+  .k-avatar-xl { width: 72px; height: 72px; @apply text-h5; }
+
+  /* ---------- Hero (video background) ---------- */
+  .k-hero { @apply relative isolate overflow-hidden bg-surface-brand-deep text-fg-inverse; min-height: min(88vh, 820px); display: flex; align-items: flex-end; }
+  .k-hero-media { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .k-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--color-surface-overlay-hero); }
+  .k-hero-inner { @apply k-container grid gap-8 pb-12 pt-32 lg:grid-cols-12 lg:pb-16; }
+  .k-hero-copy { @apply grid gap-6 lg:col-span-8; }
+  .k-hero-title { @apply text-display-xl text-fg-inverse; max-width: 16ch; }
+  .k-hero-lead { @apply text-body-lg text-navy-100; max-width: 52ch; }
+  .k-hero-actions { @apply flex flex-wrap gap-3; }
+  .k-hero-pause { @apply absolute bottom-4 right-4 inline-flex items-center gap-2 rounded border border-navy-400 px-3 py-2 text-caption text-fg-inverse lg:bottom-6 lg:right-6;
+    background: var(--color-surface-overlay-hero); cursor: pointer; min-height: 44px; }
+  .k-hero-pause:hover { @apply border-fg-inverse; }
+  .k-masterplan-pattern { background-color: var(--color-surface-brand-deep);
+    background-image: linear-gradient(var(--color-line-inverse) 1px, transparent 1px), linear-gradient(90deg, var(--color-line-inverse) 1px, transparent 1px);
+    background-size: 96px 96px, 96px 96px; }
+
+  /* ---------- Proof bar (penanda kilometer) ---------- */
+  .k-proof { @apply grid grid-cols-2 lg:grid-cols-4; border-top: 1px solid var(--color-line-strong); }
+  .k-proof-item { @apply relative grid gap-2 pr-6 pt-6; }
+  .k-proof-item::before { content: ''; position: absolute; top: -1px; left: 0; width: 2px; height: 20px; background: var(--color-brand-red); }
+  .k-proof-item:not(:first-child)::before { @apply max-lg:hidden; }
+  .k-proof-item:nth-child(n+3) { @apply max-lg:mt-8; }
+  .k-proof-value { @apply flex items-baseline gap-2 text-stat text-fg-primary k-num; }
+  .k-proof-unit { @apply text-stat-unit text-fg-secondary; }
+  .k-proof-label { @apply text-body-sm text-fg-secondary; max-width: 22ch; }
+  .k-on-dark .k-proof { border-top-color: var(--color-line-inverse); }
+  .k-on-dark .k-proof-value { @apply text-fg-inverse; }
+  .k-on-dark .k-proof-unit, .k-on-dark .k-proof-label { @apply text-fg-inverse-muted; }
+
+  /* ---------- Spec card (infrastruktur) ---------- */
+  .k-spec { @apply grid gap-4 rounded border border-line bg-surface-page p-6; }
+  .k-spec-head { @apply flex items-center gap-3; }
+  .k-spec-icon { @apply grid h-10 w-10 place-items-center rounded bg-navy-50 text-navy-700; }
+  .k-spec-title { @apply text-h5; }
+  .k-spec-list { @apply grid; margin: 0; }
+  .k-spec-row { @apply grid grid-cols-[1fr_auto] gap-4 border-t border-line py-3 text-body-sm; }
+  .k-spec-row dt { @apply text-fg-secondary; }
+  .k-spec-row dd { @apply m-0 text-right font-semibold text-fg-primary k-num; }
+
+  /* ---------- Property card ---------- */
+  .k-property { @apply k-card k-card-link; }
+  .k-property-meta { @apply grid grid-cols-2 gap-x-4 gap-y-2 border-t border-line pt-4 text-body-sm; }
+  .k-property-meta dt { @apply text-caption text-fg-secondary; }
+  .k-property-meta dd { @apply m-0 font-semibold k-num; }
+  .k-property[data-status='penuh'] .k-card-media { filter: grayscale(1); opacity: 0.7; }
+  .k-property[data-status='penuh'] .k-card-title { @apply text-fg-secondary; }
+
+  /* ---------- Tenant logo wall ---------- */
+  .k-logo-wall { @apply grid grid-cols-2 border-l border-t border-line md:grid-cols-3 lg:grid-cols-6; }
+  .k-logo-cell { @apply grid place-items-center border-b border-r border-line p-6 text-caption text-fg-muted; aspect-ratio: 3 / 2; }
+  .k-logo-cell img { max-height: 40px; max-width: 70%; filter: grayscale(1); opacity: 0.8; transition: filter var(--duration-base), opacity var(--duration-base); }
+  .k-logo-cell:hover img { filter: none; opacity: 1; }
+
+  /* ---------- Testimonial ---------- */
+  .k-testimonial { @apply grid gap-6 border-l-2 border-action-secondary py-2 pl-6 lg:pl-8; margin: 0; }
+  .k-testimonial blockquote { @apply m-0 text-h4 font-medium text-fg-primary; max-width: 46ch; }
+  .k-testimonial figcaption { @apply flex items-center gap-4; }
+  .k-testimonial-name { @apply text-label; }
+  .k-testimonial-role { @apply text-body-sm text-fg-secondary; }
+
+  /* ---------- Footer ---------- */
+  .k-footer { @apply bg-surface-footer text-fg-inverse-muted; }
+  .k-footer-inner { @apply k-container grid gap-10 py-16 lg:grid-cols-12; }
+  .k-footer h2 { @apply mb-4 text-label text-fg-inverse; }
+  .k-footer ul { @apply grid gap-3 text-body-sm; list-style: none; padding: 0; margin: 0; }
+  .k-footer a { @apply text-fg-inverse-muted; text-decoration: none; }
+  .k-footer a:hover { @apply text-fg-inverse; text-decoration: underline; }
+  .k-footer-bottom { @apply k-container flex flex-wrap justify-between gap-4 border-t border-line-inverse py-6 text-caption; }
+}

@@ -1,0 +1,11 @@
+<!-- @name: Toast | @desc: Umpan balik setelah aksi. Muncul kanan bawah, hilang otomatis kecuali error (role=alert). Pakai KIIC.toast({variant,title,message}). -->
+<div class="flex flex-wrap gap-3">
+  <button class="k-btn k-btn-outline k-btn-sm" data-k-toast='{"variant":"success","title":"Permintaan kunjungan terkirim","message":"Tim penjualan akan menghubungi Anda di hari kerja."}'>Success</button>
+  <button class="k-btn k-btn-outline k-btn-sm" data-k-toast='{"variant":"error","title":"Permintaan belum terkirim","message":"Koneksi terputus. Coba kirim lagi."}'>Error</button>
+  <button class="k-btn k-btn-outline k-btn-sm" data-k-toast='{"variant":"warning","title":"Katalog sedang diperbarui","message":"Versi terbaru tersedia minggu depan."}'>Warning</button>
+  <button class="k-btn k-btn-outline k-btn-sm" data-k-toast='{"variant":"info","title":"Tautan unduhan dikirim","message":"Cek email Anda, termasuk folder spam."}'>Info</button>
+</div>
+<div class="mt-6 grid max-w-md gap-2">
+  <div class="k-toast k-toast-success"><div style="flex:1"><p class="k-toast-title">Permintaan kunjungan terkirim</p><p class="k-toast-msg">Tim penjualan akan menghubungi Anda di hari kerja.</p></div></div>
+  <div class="k-toast k-toast-error"><div style="flex:1"><p class="k-toast-title">Permintaan belum terkirim</p><p class="k-toast-msg">Koneksi terputus. Coba kirim lagi.</p></div></div>
+</div>

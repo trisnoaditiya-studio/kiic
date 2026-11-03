@@ -1,0 +1,14 @@
+<!-- @name: Tabs | @desc: Mengelompokkan detail infrastruktur atau tipe properti di satu halaman. Panah kiri/kanan, Home, End. Tab bisa disabled. -->
+<div>
+  <div class="k-tabs-list" role="tablist" aria-label="Utilitas">
+    <button class="k-tab" role="tab" id="t-power" aria-selected="true" aria-controls="p-power">Listrik</button>
+    <button class="k-tab" role="tab" id="t-water" aria-selected="false" aria-controls="p-water" tabindex="-1">Air</button>
+    <button class="k-tab" role="tab" id="t-gas" aria-selected="false" aria-controls="p-gas" tabindex="-1">Gas</button>
+    <button class="k-tab" role="tab" id="t-net" aria-selected="false" aria-controls="p-net" tabindex="-1">Telekomunikasi</button>
+    <button class="k-tab" role="tab" aria-selected="false" tabindex="-1" disabled>Limbah (segera)</button>
+  </div>
+  <div class="k-tab-panel k-prose" role="tabpanel" id="p-power" aria-labelledby="t-power"><p>Pasokan dari jaringan 500 kV PLN melalui dua arah, sehingga satu jalur dapat menjadi cadangan jalur lainnya.</p></div>
+  <div class="k-tab-panel k-prose" role="tabpanel" id="p-water" aria-labelledby="t-water" hidden><p>Instalasi air industri dan pengolahan air limbah dirancang perusahaan Jepang, dengan dua reservoir cadangan.</p></div>
+  <div class="k-tab-panel k-prose" role="tabpanel" id="p-gas" aria-labelledby="t-gas" hidden><p>Pipa gas alam PGN tertanam di dalam kawasan.</p></div>
+  <div class="k-tab-panel k-prose" role="tabpanel" id="p-net" aria-labelledby="t-net" hidden><p>Lima penyedia telah menanam kabel serat optik masing-masing di kawasan.</p></div>
+</div>

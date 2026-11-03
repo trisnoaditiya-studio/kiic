@@ -1,0 +1,29 @@
+<!-- @name: Form kunjungan lokasi | @desc: Konversi utama. Field minimal, pertanyaan kualifikasi (jenis properti, luas, waktu). Ringkasan error di atas saat submit gagal, error per field di bawah input. -->
+<form class="grid max-w-2xl gap-6" novalidate>
+  <div class="k-error-summary" role="alert">
+    <p class="text-label">Periksa 2 isian berikut</p>
+    <ul style="margin:var(--space-2) 0 0;padding-left:var(--space-5)"><li><a href="#f-email" style="color:inherit">Email kantor belum lengkap</a></li><li><a href="#f-date" style="color:inherit">Pilih perkiraan tanggal kunjungan</a></li></ul>
+  </div>
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="k-field"><label class="k-label" for="f-name">Nama lengkap</label><input class="k-input" id="f-name" autocomplete="name" value="Budi Santoso"></div>
+    <div class="k-field"><label class="k-label" for="f-co">Perusahaan</label><input class="k-input" id="f-co" autocomplete="organization" value="PT Contoh Manufaktur"></div>
+    <div class="k-field"><label class="k-label" for="f-email">Email kantor</label><input class="k-input" id="f-email" type="email" value="budi@" aria-invalid="true" aria-describedby="f-email-e"><p class="k-error-text" id="f-email-e">Masukkan email lengkap</p></div>
+    <div class="k-field"><label class="k-label" for="f-phone">No. WhatsApp</label><input class="k-input" id="f-phone" type="tel" autocomplete="tel" placeholder="0812 3456 7890"></div>
+  </div>
+  <fieldset class="k-fieldset" style="border:0;padding:0;margin:0">
+    <legend>Properti yang dicari</legend>
+    <label class="k-check"><input type="checkbox" checked> Lahan industri</label>
+    <label class="k-check"><input type="checkbox"> Gudang siap pakai atau build-to-suit</label>
+    <label class="k-check"><input type="checkbox"> Pabrik, kantor, atau function hall</label>
+  </fieldset>
+  <fieldset class="k-fieldset" style="border:0;padding:0;margin:0">
+    <legend>Target mulai operasional</legend>
+    <label class="k-check"><input type="radio" name="f-when"> Dalam 6 bulan</label>
+    <label class="k-check"><input type="radio" name="f-when" checked> 6–12 bulan</label>
+    <label class="k-check"><input type="radio" name="f-when"> Lebih dari 12 bulan</label>
+    <label class="k-check"><input type="radio" name="f-when" disabled> Belum ditentukan (contoh disabled)</label>
+  </fieldset>
+  <div class="k-field md:max-w-xs"><label class="k-label" for="f-date">Perkiraan tanggal kunjungan</label><input class="k-input" id="f-date" type="date" aria-invalid="true" aria-describedby="f-date-e"><p class="k-error-text" id="f-date-e">Pilih tanggal kunjungan</p></div>
+  <label class="k-check text-body-sm"><input type="checkbox"><span>Saya setuju data ini dipakai tim KIIC untuk menghubungi saya, sesuai <a href="#">kebijakan privasi</a>.</span></label>
+  <div class="flex flex-wrap items-center gap-4"><button class="k-btn k-btn-primary k-btn-lg" type="submit">Kirim permintaan kunjungan</button><p class="text-body-sm text-fg-secondary">Tim penjualan menghubungi Anda di hari kerja.</p></div>
+</form>

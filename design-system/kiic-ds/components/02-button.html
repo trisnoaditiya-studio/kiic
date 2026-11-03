@@ -1,0 +1,23 @@
+<!-- @name: Button | @desc: Satu primary (merah) per area tampilan. Secondary navy untuk aksi pendamping. State: hover, active, focus, disabled, loading (aria-busy). Min tinggi 44px. -->
+<div class="grid gap-6">
+  <div class="flex flex-wrap items-center gap-3">
+    <a href="#" class="k-btn k-btn-primary">Ajukan kunjungan lokasi</a>
+    <button class="k-btn k-btn-secondary">Unduh katalog</button>
+    <button class="k-btn k-btn-outline">Lihat properti</button>
+    <button class="k-btn k-btn-ghost">Selengkapnya</button>
+  </div>
+  <div class="flex flex-wrap items-center gap-3">
+    <button class="k-btn k-btn-primary k-btn-sm">Small</button>
+    <button class="k-btn k-btn-primary">Medium</button>
+    <button class="k-btn k-btn-primary k-btn-lg">Large</button>
+  </div>
+  <div class="flex flex-wrap items-center gap-3">
+    <button class="k-btn k-btn-primary" disabled>Disabled</button>
+    <button class="k-btn k-btn-outline" aria-disabled="true">Aria disabled</button>
+    <button class="k-btn k-btn-primary" aria-busy="true">Mengirim…</button>
+  </div>
+  <div class="k-on-dark flex flex-wrap items-center gap-3 rounded bg-surface-brand p-6">
+    <a href="#" class="k-btn k-btn-primary">Ajukan kunjungan lokasi</a>
+    <button class="k-btn k-btn-inverse">Unduh katalog</button>
+  </div>
+</div>

@@ -1,0 +1,299 @@
+{
+  "$meta": {
+    "name": "KIIC Design System",
+    "version": "1.0.0",
+    "updated": "2026-11-02",
+    "notes": "Single source of truth. Primitive = nilai mentah. Semantic = peran, selalu merujuk primitive lewat {path}. Komponen hanya boleh memakai semantic token."
+  },
+  "color": {
+    "primitive": {
+      "white": "#FFFFFF",
+      "red": {
+        "50": "#FFF1F1",
+        "100": "#FFDEDE",
+        "200": "#FFC2C2",
+        "300": "#FF9494",
+        "400": "#FF5757",
+        "500": "#FE0000",
+        "600": "#E00000",
+        "700": "#B80000",
+        "800": "#940000",
+        "900": "#7A0505",
+        "950": "#450000"
+      },
+      "navy": {
+        "50": "#EEF6FF",
+        "100": "#D9EAFB",
+        "200": "#B6D4F2",
+        "300": "#84B5E3",
+        "400": "#4A8DCC",
+        "500": "#2470B5",
+        "600": "#0B5A9C",
+        "700": "#004884",
+        "800": "#003A6B",
+        "900": "#062F55",
+        "950": "#031C36"
+      },
+      "steel": {
+        "50": "#F6F7F9",
+        "100": "#EDEFF2",
+        "200": "#DDE1E7",
+        "300": "#C3C9D2",
+        "400": "#98A1AE",
+        "500": "#626B7B",
+        "600": "#535C6B",
+        "700": "#3E4654",
+        "800": "#2A313D",
+        "900": "#181D26",
+        "950": "#0E121A"
+      },
+      "green": {
+        "50": "#ECF7EF",
+        "200": "#A9D9B8",
+        "600": "#17803F",
+        "700": "#11652F"
+      },
+      "amber": {
+        "50": "#FFF5E3",
+        "200": "#F5CB7E",
+        "400": "#F2A20C",
+        "700": "#8A5100"
+      },
+      "crimson": {
+        "50": "#FCEDF1",
+        "200": "#F0AFC0",
+        "600": "#B0153F",
+        "700": "#8E1033"
+      }
+    },
+    "semantic": {
+      "surface": {
+        "page": "{color.primitive.white}",
+        "subtle": "{color.primitive.steel.50}",
+        "muted": "{color.primitive.steel.100}",
+        "brand": "{color.primitive.navy.700}",
+        "brand-deep": "{color.primitive.navy.900}",
+        "footer": "{color.primitive.navy.950}",
+        "overlay-hero": "rgba(3, 28, 54, 0.64)",
+        "overlay-modal": "rgba(14, 18, 26, 0.56)"
+      },
+      "fg": {
+        "primary": "{color.primitive.steel.900}",
+        "secondary": "{color.primitive.steel.600}",
+        "muted": "{color.primitive.steel.500}",
+        "inverse": "{color.primitive.white}",
+        "inverse-muted": "{color.primitive.navy.200}",
+        "link": "{color.primitive.navy.700}",
+        "link-hover": "{color.primitive.navy.900}",
+        "accent": "{color.primitive.red.600}",
+        "disabled": "{color.primitive.steel.400}"
+      },
+      "line": {
+        "default": "{color.primitive.steel.200}",
+        "strong": "{color.primitive.steel.300}",
+        "inverse": "{color.primitive.navy.600}",
+        "focus": "{color.primitive.navy.500}",
+        "focus-inverse": "{color.primitive.white}"
+      },
+      "action": {
+        "primary": "{color.primitive.red.600}",
+        "primary-hover": "{color.primitive.red.700}",
+        "primary-active": "{color.primitive.red.800}",
+        "secondary": "{color.primitive.navy.700}",
+        "secondary-hover": "{color.primitive.navy.800}",
+        "secondary-active": "{color.primitive.navy.900}",
+        "ghost-hover": "{color.primitive.steel.100}",
+        "disabled": "{color.primitive.steel.100}"
+      },
+      "brand": {
+        "red": "{color.primitive.red.500}",
+        "navy": "{color.primitive.navy.700}"
+      },
+      "status": {
+        "success-fg": "{color.primitive.green.700}",
+        "success-bg": "{color.primitive.green.50}",
+        "success-line": "{color.primitive.green.200}",
+        "warning-fg": "{color.primitive.amber.700}",
+        "warning-bg": "{color.primitive.amber.50}",
+        "warning-line": "{color.primitive.amber.200}",
+        "danger-fg": "{color.primitive.crimson.700}",
+        "danger-bg": "{color.primitive.crimson.50}",
+        "danger-line": "{color.primitive.crimson.600}",
+        "info-fg": "{color.primitive.navy.700}",
+        "info-bg": "{color.primitive.navy.50}",
+        "info-line": "{color.primitive.navy.200}"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "sans": "'Manrope Variable', 'Manrope', 'Segoe UI', 'Helvetica Neue', sans-serif"
+    },
+    "weight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "feature": {
+      "numeric": "\"tnum\" 1, \"lnum\" 1"
+    }
+  },
+  "typography": {
+    "display-xl": {
+      "size": "clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)",
+      "lineHeight": "1.04",
+      "weight": 700,
+      "tracking": "-0.025em"
+    },
+    "display-lg": {
+      "size": "clamp(2.125rem, 1.5rem + 2.4vw, 3.25rem)",
+      "lineHeight": "1.08",
+      "weight": 700,
+      "tracking": "-0.02em"
+    },
+    "h1": {
+      "size": "clamp(1.875rem, 1.45rem + 1.6vw, 2.5rem)",
+      "lineHeight": "1.15",
+      "weight": 700,
+      "tracking": "-0.015em"
+    },
+    "h2": {
+      "size": "clamp(1.625rem, 1.35rem + 1vw, 2rem)",
+      "lineHeight": "1.2",
+      "weight": 700,
+      "tracking": "-0.01em"
+    },
+    "h3": {
+      "size": "clamp(1.3125rem, 1.2rem + 0.45vw, 1.5rem)",
+      "lineHeight": "1.3",
+      "weight": 700,
+      "tracking": "-0.005em"
+    },
+    "h4": {
+      "size": "1.25rem",
+      "lineHeight": "1.35",
+      "weight": 600,
+      "tracking": "0"
+    },
+    "h5": {
+      "size": "1.125rem",
+      "lineHeight": "1.4",
+      "weight": 600,
+      "tracking": "0"
+    },
+    "h6": {
+      "size": "1rem",
+      "lineHeight": "1.45",
+      "weight": 700,
+      "tracking": "0"
+    },
+    "body-lg": {
+      "size": "1.125rem",
+      "lineHeight": "1.65",
+      "weight": 400,
+      "tracking": "0"
+    },
+    "body-md": {
+      "size": "1rem",
+      "lineHeight": "1.6",
+      "weight": 400,
+      "tracking": "0"
+    },
+    "body-sm": {
+      "size": "0.875rem",
+      "lineHeight": "1.55",
+      "weight": 400,
+      "tracking": "0"
+    },
+    "label": {
+      "size": "0.875rem",
+      "lineHeight": "1.3",
+      "weight": 600,
+      "tracking": "0.005em"
+    },
+    "caption": {
+      "size": "0.8125rem",
+      "lineHeight": "1.45",
+      "weight": 500,
+      "tracking": "0.01em"
+    },
+    "stat": {
+      "size": "clamp(2.5rem, 1.9rem + 2.4vw, 3.75rem)",
+      "lineHeight": "1",
+      "weight": 700,
+      "tracking": "-0.03em"
+    },
+    "stat-unit": {
+      "size": "clamp(1rem, 0.9rem + 0.4vw, 1.25rem)",
+      "lineHeight": "1.2",
+      "weight": 600,
+      "tracking": "0"
+    }
+  },
+  "spacing": {
+    "0": "0",
+    "0.5": "0.125rem",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "7": "1.75rem",
+    "8": "2rem",
+    "9": "2.25rem",
+    "10": "2.5rem",
+    "11": "2.75rem",
+    "12": "3rem",
+    "14": "3.5rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem",
+    "28": "7rem",
+    "32": "8rem",
+    "section-y": "clamp(4rem, 2.5rem + 6vw, 8rem)",
+    "gutter": "clamp(1.25rem, 0.75rem + 2vw, 2.5rem)"
+  },
+  "radius": {
+    "none": "0",
+    "sm": "4px",
+    "md": "8px",
+    "full": "9999px"
+  },
+  "shadow": {
+    "sm": "0 1px 2px rgba(14, 18, 26, 0.08)",
+    "md": "0 8px 24px rgba(14, 18, 26, 0.10), 0 2px 6px rgba(14, 18, 26, 0.06)",
+    "lg": "0 24px 48px rgba(14, 18, 26, 0.18)"
+  },
+  "motion": {
+    "duration": {
+      "fast": "120ms",
+      "base": "200ms",
+      "slow": "320ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0, 0, 1)",
+      "exit": "cubic-bezier(0.4, 0, 1, 1)"
+    }
+  },
+  "layout": {
+    "container": "1280px",
+    "measure": "68ch",
+    "nav-height": "72px"
+  },
+  "breakpoint": {
+    "sm": "375px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1440px"
+  },
+  "z": {
+    "nav": 40,
+    "dropdown": 50,
+    "toast": 60,
+    "modal": 70
+  }
+}

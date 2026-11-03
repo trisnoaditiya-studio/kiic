@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>KIIC — Beranda</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./assets/c535c40d2a918c0c3a1842093203f69d.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face { font-family: 'Manrope Variable'; font-style: normal; font-display: swap; font-weight: 200 800; src: url(./assets/cb8dd8f4293aeadfb3066e254a615ac3.woff2) format('woff2'); }
+body{margin:0}
+.k-hero{min-height:100vh;min-height:100svh}
+.k-hero::after{content:"";position:absolute;inset:auto 0 0;height:75%;z-index:-1;pointer-events:none;background:linear-gradient(to top,rgba(3,28,54,.94) 0%,rgba(3,28,54,.8) 30%,rgba(3,28,54,.45) 60%,rgba(3,28,54,0) 100%)}
+.k-hero-video{container-type:size;overflow:hidden;background:var(--c-navy-950) url(./assets/hero-poster.jpg) center/cover no-repeat}
+.k-hero-video iframe{position:absolute;top:50%;left:50%;width:max(100cqw,177.78cqh);height:max(100cqh,56.25cqw);transform:translate(-50%,-50%);border:0;pointer-events:none}
+.k-hero-controls{position:absolute;right:var(--space-6);bottom:var(--space-6);display:flex;gap:var(--space-2)}
+.k-hero-controls .k-hero-pause{position:static}
+.k-hero-sound{justify-content:center;min-width:44px;padding-inline:0}
+.k-map-card{max-width:460px;background:rgba(3,28,54,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--color-line-inverse)}
+.k-eyebrow-red{display:flex;align-items:center;gap:var(--space-3);font-size:var(--type-label-size);line-height:var(--type-label-leading);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-red-300)}
+.k-eyebrow-red::before{content:"";width:12px;height:12px;border-radius:2px;background:var(--color-brand-red)}
+.k-map-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6);margin:0;padding-top:var(--space-4);border-top:1px solid var(--color-line-inverse)}
+.k-map-stats dt{order:2;font-size:var(--type-caption-size);line-height:var(--type-caption-leading);color:var(--color-fg-inverse-muted)}
+.k-map-stats div{display:flex;flex-direction:column;gap:2px}
+.k-map-stats dd{margin:0;display:flex;align-items:baseline;gap:4px;font-size:28px;line-height:1.15;font-weight:700;color:var(--color-fg-inverse);font-feature-settings:var(--font-numeric)}
+.k-map-stats dd span{font-size:14px;font-weight:600;color:var(--color-fg-inverse-muted)}
+.k-hero-bar{position:relative;z-index:1;width:100%;background:rgba(3,28,54,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.12)}
+.k-hero-bar-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-5) var(--space-10);margin-inline:auto;max-width:var(--layout-container);padding:var(--space-6) var(--space-gutter)}
+.k-hero-bar-head{display:grid;justify-items:start;gap:var(--space-2)}
+.k-hero-bar-tag{margin:0;padding:4px 12px;background:var(--color-brand-red);font-size:var(--type-caption-size);line-height:var(--type-caption-leading);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-white)}
+.k-hero-bar-title{margin:0;font-size:var(--type-h4-size);line-height:var(--type-h4-leading);font-weight:700;color:var(--color-fg-inverse)}
+.k-hero-proof{display:flex;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.k-hero-proof li{display:flex;padding:var(--space-2) var(--space-6)}
+.k-hero-proof li+li{border-left:1px solid rgba(255,255,255,.16)}
+.k-hero-proof li:last-child{padding-right:0}
+.k-hero-proof a{display:inline-flex;align-items:center;gap:var(--space-3);color:var(--color-fg-inverse);text-decoration:none}
+.k-hero-c-text{display:grid;gap:2px;font-size:var(--type-body-lg-size);line-height:1.25;font-weight:600}
+.k-hero-c-label{font-size:var(--type-caption-size);line-height:var(--type-caption-leading);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--c-navy-200)}
+.k-hero-proof .k-icon{flex:none;width:44px;height:44px;padding:11px;border-radius:50%;background:var(--color-brand-red);color:var(--c-white);transition:background var(--duration-base),box-shadow var(--duration-base)}
+.k-hero-proof a:hover .k-icon,.k-hero-proof a:focus-visible .k-icon{background:var(--c-red-600);box-shadow:0 0 0 4px rgba(255,255,255,.18)}
+.k-hero-proof a:hover .k-hero-c-text{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--color-brand-red)}
+@media (max-width:767px){.k-hero-proof{flex-direction:column;gap:var(--space-3)}.k-hero-proof li{padding:0}.k-hero-proof li+li{border-left:0}}
+.k-hero{flex-direction:column;justify-content:flex-end;align-items:stretch}
+.k-hero .k-hero-controls{bottom:auto;top:calc(var(--layout-nav-height) + var(--space-6))}
+@media (min-width:1024px){.k-hero-bar{position:absolute;left:0;right:0;bottom:0}.k-hero-inner{padding-bottom:calc(112px + var(--space-16))}.k-hero .k-hero-controls{top:auto;bottom:calc(112px + var(--space-6))}}
+.k-testimonial-sm blockquote{font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-leading);letter-spacing:normal}
+.k-map-svg text{paint-order:stroke;stroke:#ffffff;stroke-width:3px;stroke-linejoin:round}
+.k-map-panel{transition:opacity 450ms var(--ease-standard) 250ms,transform 600ms var(--ease-standard) 250ms,visibility 0s linear 0s}
+.k-map-panel[data-on="false"]{opacity:0;visibility:hidden;pointer-events:none;transition:opacity 300ms var(--ease-standard),transform 400ms var(--ease-standard),visibility 0s linear 400ms}
+.k-map-panel-about[data-on="false"]{transform:translateX(-32px)}
+.k-map-panel-dock[data-on="false"]{transform:translateY(32px)}
+.k-map-text-a{animation:k-map-text-a 500ms var(--ease-standard) both}
+.k-map-text-b{animation:k-map-text-b 500ms var(--ease-standard) both}
+@keyframes k-map-text-a{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes k-map-text-b{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.k-map-panel,.k-map-panel[data-on="false"]{transition:opacity 200ms linear}.k-map-panel[data-on="false"]{transform:none}.k-map-text-a,.k-map-text-b{animation:none}}
+.k-map-dock-wrap{position:absolute;left:0;right:0;bottom:var(--space-4);z-index:1;margin-inline:auto;max-width:var(--layout-container);padding-inline:var(--space-gutter)}
+.k-map-dock{display:grid;gap:var(--space-4);padding:var(--space-5);border-radius:var(--radius-sm);background:rgba(3,28,54,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--color-line-inverse);box-shadow:var(--shadow-md)}
+.k-map-dock-main{display:grid;gap:var(--space-4)}
+.k-map-dock-side{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4) var(--space-6)}
+.k-prop-sec{background:var(--c-navy-950)}
+.k-prop-head{display:grid;gap:var(--space-6);align-items:end}
+.k-prop-sub{margin:0;font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-leading);color:var(--c-navy-100);max-width:52ch}
+.k-prop-hint{display:flex;align-items:center;gap:var(--space-2);margin:0;font-size:var(--type-caption-size);letter-spacing:.08em;text-transform:uppercase;color:var(--c-navy-300)}
+.k-prop-hint .k-icon{width:16px;height:16px;color:var(--c-red-400)}
+.k-xp{display:flex;flex-direction:column;gap:var(--space-3)}
+.k-xp-panel{position:relative;isolation:isolate;overflow:hidden;min-height:120px;border-radius:var(--radius-md);background:var(--c-navy-900);transition:flex-grow 700ms var(--ease-standard),min-height 700ms var(--ease-standard)}
+.k-xp-panel[data-on="true"]{min-height:560px}
+.k-xp-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:var(--pos);transition:transform 900ms var(--ease-standard),filter 600ms}
+.k-xp-panel[data-on="false"] .k-xp-img{filter:saturate(.6) brightness(.7)}
+.k-xp-panel[data-on="false"]:hover .k-xp-img{transform:scale(1.05);filter:none}
+.k-xp-panel[data-on="true"] .k-xp-img{object-fit:var(--fit);padding:var(--pad)}
+.k-xp-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(3,28,54,.95) 0%,rgba(3,28,54,.55) 45%,rgba(3,28,54,.15) 100%)}
+.k-xp-open{position:absolute;inset:0;display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5);border:0;background:none;color:var(--color-fg-inverse);text-align:left;cursor:pointer}
+.k-xp-panel[data-on="true"] .k-xp-open{visibility:hidden}
+.k-xp-num{font-size:var(--type-label-size);font-weight:700;letter-spacing:.08em;color:var(--c-red-300)}
+.k-xp-vtitle{flex:1;font-size:var(--type-h5-size);line-height:var(--type-h5-leading);font-weight:700}
+.k-xp-plus{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.35);transition:background var(--duration-base),border-color var(--duration-base)}
+.k-xp-open:hover .k-xp-plus,.k-xp-open:focus-visible .k-xp-plus{background:var(--color-brand-red);border-color:var(--color-brand-red)}
+.k-xp-body{position:absolute;left:0;right:0;bottom:0;display:grid;gap:var(--space-4);padding:var(--space-6);max-width:640px;color:var(--color-fg-inverse);opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity 300ms,transform 300ms,visibility 0s linear 300ms}
+.k-xp-panel[data-on="true"] .k-xp-body{opacity:1;visibility:visible;transform:none;transition:opacity 500ms var(--ease-standard) 350ms,transform 600ms var(--ease-standard) 350ms,visibility 0s}
+.k-prop-tag{justify-self:start;margin:0;padding:4px 12px;background:var(--color-brand-red);font-size:var(--type-caption-size);line-height:var(--type-caption-leading);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-white)}
+.k-prop-title{margin:0;font-size:clamp(28px,3vw,40px);line-height:1.15;font-weight:700;color:var(--color-fg-inverse)}
+.k-prop-desc{margin:0;font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-leading);color:var(--c-navy-100);max-width:52ch}
+.k-prop-facts{display:flex;flex-wrap:wrap;gap:var(--space-4) 0;margin:var(--space-2) 0;padding:0}
+.k-prop-facts div{display:grid;gap:2px;padding-right:var(--space-8);margin-right:var(--space-8);border-right:1px solid rgba(255,255,255,.2)}
+.k-prop-facts div:last-child{border-right:0;margin-right:0;padding-right:0}
+.k-prop-facts dt{order:2;font-size:var(--type-caption-size);line-height:var(--type-caption-leading);letter-spacing:.06em;text-transform:uppercase;color:var(--c-navy-200)}
+.k-prop-facts dd{margin:0;font-size:22px;line-height:1.25;font-weight:700;color:var(--color-fg-inverse)}
+.k-prop-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-5);padding-top:var(--space-6);border-top:1px solid var(--color-line-inverse)}
+.k-prop-usp{display:flex;flex-wrap:wrap;gap:var(--space-3) var(--space-8);margin:0;padding:0;list-style:none}
+.k-prop-usp li{display:flex;align-items:center;gap:var(--space-2);font-size:var(--type-body-md-size);font-weight:600;color:var(--color-fg-inverse)}
+.k-prop-usp .k-icon{color:var(--c-red-400)}
+.k-prop-help-link{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--type-label-size);font-weight:600;color:var(--c-red-300);text-decoration:none}
+.k-prop-help-link:hover{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){.k-xp-panel,.k-xp-img,.k-xp-body{transition:none!important}}
+@media (min-width:1024px){
+.k-prop-head{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--space-16)}
+.k-xp{flex-direction:row;height:600px;gap:var(--space-4)}
+.k-xp-panel,.k-xp-panel[data-on="true"]{min-height:0;flex:1 1 0}
+.k-xp-panel[data-on="true"]{flex-grow:4.2}
+.k-xp-open{flex-direction:column;align-items:center;justify-content:space-between;padding:var(--space-6) 0}
+.k-xp-vtitle{flex:1;display:flex;align-items:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:var(--type-h4-size);white-space:nowrap}
+.k-xp-body{padding:var(--space-10)}
+}
+.k-map-legend{display:flex;gap:var(--space-5);margin:0;padding:var(--space-4) 0 0;list-style:none;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--color-line-inverse)}
+.k-map-legend::-webkit-scrollbar{display:none}
+.k-map-legend li{display:flex;flex:none;align-items:center;gap:var(--space-2);font-size:var(--type-caption-size);line-height:var(--type-caption-leading);color:var(--color-fg-inverse-muted);white-space:nowrap;transition:opacity 600ms var(--ease-standard)}
+.k-map-legend-sw{display:inline-block;width:24px}
+@media (min-width:1024px){.k-map-dock-wrap{bottom:var(--space-6)}.k-map-dock{padding:var(--space-6) var(--space-8)}.k-map-dock-main{grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:var(--space-10)}.k-map-dock-side{flex-direction:column;align-items:flex-end}.k-map-legend{gap:var(--space-8)}}
+.k-map-photo{display:none}
+@media (min-width:1024px){.k-map-photo{display:inline}}
+.k-hdr-scrim::before{content:"";position:absolute;inset:0 0 auto;height:160px;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(3,28,54,.72) 0%,rgba(3,28,54,.45) 45%,rgba(3,28,54,0) 100%)}
+.k-util-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--space-6);margin-bottom:var(--space-10)}
+.k-util-head .k-section-head{flex:1 1 560px;max-width:760px;margin-bottom:0;grid-template-columns:minmax(0,1fr)}.k-util-head .k-section-head>*{grid-column:1/-1}
+.k-util-nav{display:flex;align-items:center;gap:var(--space-3)}
+.k-util-btn{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--color-line-strong);background:var(--c-white);color:var(--color-fg-primary);cursor:pointer;transition:background 200ms var(--ease-standard),color 200ms var(--ease-standard),border-color 200ms var(--ease-standard),opacity 200ms}
+.k-util-btn:hover:not(:disabled){background:var(--color-brand-red);border-color:var(--color-brand-red);color:var(--c-white)}
+.k-util-btn:disabled{opacity:.35;cursor:default}
+.k-util-btn:focus-visible{outline:2px solid var(--color-line-focus);outline-offset:2px}
+.k-util-btn svg{width:20px;height:20px}
+.k-util{display:flex;gap:var(--space-6);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:var(--space-2) 2px var(--space-6);margin:calc(var(--space-2)*-1) -2px 0;overscroll-behavior-x:contain}
+.k-util::-webkit-scrollbar{display:none}
+.k-util>li{flex:0 0 85%;scroll-snap-align:start;display:flex}
+@media (min-width:768px){.k-util>li{flex-basis:calc((100% - var(--space-6))/2)}}
+@media (min-width:1024px){.k-util>li{flex-basis:calc((100% - var(--space-6)*2)/3)}}
+.k-util-card{position:relative;display:flex;flex-direction:column;width:100%;background:var(--c-white);border:1px solid var(--color-line-default);border-radius:12px;overflow:hidden;transition:transform 320ms var(--ease-standard),box-shadow 320ms var(--ease-standard),border-color 320ms}
+.k-util-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(14,18,26,.07);border-color:var(--color-line-strong)}
+.k-util-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--color-brand-red);transform:scaleX(0);transform-origin:left;transition:transform 420ms var(--ease-standard)}
+.k-util-card:hover::after{transform:scaleX(1)}
+.k-util-media{position:relative;height:208px;overflow:hidden;background:var(--color-surface-muted)}
+.k-util-media img{width:100%;height:100%;object-fit:cover;transition:transform 700ms var(--ease-standard)}
+.k-util-card:hover .k-util-media img{transform:scale(1.07)}
+.k-util-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(3,28,54,.72) 0%,rgba(3,28,54,.1) 55%,rgba(3,28,54,0) 100%)}
+.k-util-num{position:absolute;z-index:1;left:var(--space-5);bottom:var(--space-3);font-size:44px;font-weight:800;line-height:1;letter-spacing:-.03em;color:rgba(255,255,255,.92);font-feature-settings:var(--font-numeric)}
+.k-util-icon{position:absolute;z-index:2;right:var(--space-5);top:184px;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--color-brand-red);color:var(--c-white);box-shadow:0 2px 6px rgba(224,0,0,.2)}
+.k-util-icon svg{width:22px;height:22px}
+.k-util-body{display:flex;flex:1;flex-direction:column;gap:var(--space-3);padding:var(--space-6) var(--space-6) var(--space-7)}
+.k-util-title{padding-right:56px;font-size:21px;line-height:1.3;font-weight:700;color:var(--color-fg-primary)}
+.k-util-text{flex:1;font-size:15px;line-height:1.65;color:var(--color-fg-secondary)}
+.k-util-chip{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:var(--space-2);padding:6px 12px;border-radius:var(--radius-full);background:var(--c-red-50);color:var(--c-red-600);font-size:13px;font-weight:600;line-height:1.4}
+.k-util-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.k-util-bar{position:relative;height:3px;margin-top:var(--space-4);border-radius:3px;background:var(--color-line-default);overflow:hidden}
+.k-util-bar span{position:absolute;top:0;bottom:0;left:0;border-radius:3px;background:var(--color-brand-red);transition:transform 200ms linear}
+.k-util-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--space-4);margin-top:var(--space-10)}
+@media (prefers-reduced-motion:reduce){.k-util{scroll-behavior:auto}}
+.k-env-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--c-red-50);color:var(--c-red-600);transition:background 240ms var(--ease-standard),color 240ms var(--ease-standard)}
+.k-env-ico svg{width:22px;height:22px}
+.k-env-num{font-size:var(--type-caption-size);font-weight:700;color:var(--color-fg-muted);font-feature-settings:var(--font-numeric)}
+/* Lingkungan */
+.k-envb{display:grid;gap:var(--space-10);padding:var(--space-10);background:var(--c-white);border:1px solid var(--color-line-default);border-radius:16px}
+.k-envb-facs{display:grid;gap:var(--space-4);grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){.k-envb-facs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.k-envb-facs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.k-envb-fac{position:relative;display:grid;gap:var(--space-3);align-content:start;padding:var(--space-6);border-radius:12px;background:var(--color-surface-subtle);border-top:3px solid var(--color-brand-red);transition:background 240ms var(--ease-standard),transform 240ms var(--ease-standard)}
+.k-envb-fac:hover{background:var(--c-red-50);transform:translateY(-3px)}
+.k-envb-fac .k-env-ico{background:#fff}
+.k-envb-fac h3{font-size:18px;font-weight:700;line-height:1.35;color:var(--color-fg-primary)}
+.k-envb-fac p{font-size:15px;line-height:1.6;color:var(--color-fg-secondary)}
+.k-envb-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--space-6);padding-top:var(--space-8);border-top:1px solid var(--color-line-default)}
+.k-envs{display:grid;gap:var(--space-4);grid-template-columns:minmax(0,1fr)}
+@media (min-width:768px){.k-envs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.k-envs-tile{position:relative;display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);min-height:240px;padding:var(--space-8) var(--space-10);border-radius:16px;overflow:hidden;color:#fff}
+.k-envs-tile.is-pop,.k-envs-tile.is-time{justify-content:flex-start;background:var(--c-navy-950)}
+.k-envs-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;transform:scale(1.04);transform-origin:right center}
+.k-envs-tile.is-pop::after,.k-envs-tile.is-time::after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(3,28,54,0) 0%,rgba(3,28,54,.15) 35%,rgba(3,28,54,.82) 62%,rgba(3,28,54,.92) 100%)}
+.k-envs-tile.is-pop .k-envs-main,.k-envs-tile.is-time .k-envs-main{z-index:2;width:50%;min-width:240px}
+.k-envs-main{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start}
+.k-envs-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--radius-full);background:rgba(255,255,255,.12);font-size:13px;font-weight:600;letter-spacing:.02em}
+.k-envs-kicker svg{width:16px;height:16px}
+.k-envs-num{display:flex;align-items:baseline;gap:10px;margin-top:var(--space-5);font-size:clamp(4rem,2.4rem + 4vw,6.5rem);font-weight:800;line-height:.9;letter-spacing:-.05em;font-feature-settings:var(--font-numeric)}
+.k-envs-num span{font-size:clamp(1.25rem,1rem + .8vw,1.75rem);font-weight:700;letter-spacing:-.01em}
+.is-pop .k-envs-num span{color:var(--c-red-300)}
+.is-time .k-envs-num span{color:var(--c-red-300)}
+.k-envs-label{margin-top:var(--space-3);font-size:16px;font-weight:500;color:rgba(255,255,255,.78)}
+@media (max-width:1023px){.k-envs-tile{padding:var(--space-7);min-height:0}.k-envs-tile.is-pop,.k-envs-tile.is-time{min-height:260px;align-items:flex-end}.k-envs-tile.is-pop::after,.k-envs-tile.is-time::after{background:linear-gradient(180deg,rgba(3,28,54,.1) 0%,rgba(3,28,54,.55) 45%,rgba(3,28,54,.92) 100%)}.k-envs-tile.is-pop .k-envs-main,.k-envs-tile.is-time .k-envs-main{width:100%;min-width:0}.k-envs-bg{object-position:75% 30%}}
+.k-tq-sec{position:relative;overflow:hidden;background:var(--c-navy-950)}
+.k-tq-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(36,112,181,.35),transparent 50%);pointer-events:none}
+.k-tq{position:relative;display:grid;gap:var(--space-12);grid-template-columns:minmax(0,1fr)}
+@media (min-width:1024px){.k-tq{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--space-16);align-items:stretch}}
+.k-tq-intro{display:flex;flex-direction:column;gap:var(--space-5)}
+.k-tq-intro p.k-tq-sub{font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-leading);color:var(--color-fg-inverse-muted)}
+.k-tq-tabs{display:grid;gap:var(--space-2);margin-top:var(--space-4)}
+.k-tq-tab{position:relative;display:flex;align-items:center;gap:var(--space-4);width:100%;padding:var(--space-4) var(--space-5);border-radius:12px;border:1px solid rgba(255,255,255,.08);background:transparent;color:#fff;text-align:left;cursor:pointer;transition:background 240ms var(--ease-standard),border-color 240ms var(--ease-standard)}
+.k-tq-tab:hover{background:rgba(255,255,255,.05)}
+.k-tq-tab[aria-selected="true"]{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+.k-tq-tab::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:3px;border-radius:3px;background:var(--color-brand-red);transform:scaleY(0);transition:transform 320ms var(--ease-standard)}
+.k-tq-tab[aria-selected="true"]::before{transform:scaleY(1)}
+.k-tq-tab:focus-visible{outline:2px solid var(--color-line-focus-inverse);outline-offset:2px}
+.k-tq-av{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:#fff;overflow:hidden;opacity:.7;transition:opacity 240ms var(--ease-standard),box-shadow 240ms var(--ease-standard)}
+.k-tq-av img{width:100%;height:100%;object-fit:cover}
+.k-tq-av[data-fit="contain"] img{object-fit:contain;padding:8px}
+.k-tq-tab:hover .k-tq-av{opacity:.9}
+.k-tq-tab[aria-selected="true"] .k-tq-av{opacity:1;box-shadow:0 0 0 3px var(--color-brand-red)}
+.k-tq-tab-name{display:block;font-size:15px;font-weight:700;line-height:1.35}
+.k-tq-tab-role{display:block;margin-top:2px;font-size:13px;color:var(--color-fg-inverse-muted)}
+.k-tq-tab-num{margin-left:auto;font-size:13px;font-weight:700;color:rgba(255,255,255,.35);font-feature-settings:var(--font-numeric)}
+.k-tq-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-10);min-height:440px;padding:var(--space-12);border-radius:20px;background:#fff;color:var(--color-fg-primary);overflow:hidden}
+.k-tq-card::before{content:"\201C";position:absolute;right:28px;top:-40px;font-size:280px;line-height:1;font-weight:800;color:var(--c-red-50);pointer-events:none}
+.k-tq-mark{position:relative;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--color-brand-red);color:#fff}
+.k-tq-mark svg{width:24px;height:24px}
+.k-tq-quote{position:relative;margin:var(--space-7) 0 0;max-width:62ch;font-size:clamp(1.125rem,.95rem + .55vw,1.4rem);line-height:1.65;font-weight:500;letter-spacing:-.005em;color:var(--color-fg-primary)}
+.k-tq-foot{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-6);padding-top:var(--space-6);border-top:1px solid var(--color-line-default)}
+.k-tq-who{display:flex;align-items:center;gap:var(--space-4)}
+.k-tq-who .k-tq-av{width:60px;height:60px;opacity:1;box-shadow:0 0 0 1px var(--color-line-default)}
+.k-tq-who .k-tq-av[data-fit="contain"] img{padding:10px}
+.k-tq-who-name{font-size:17px;font-weight:700;line-height:1.35}
+.k-tq-who-role{font-size:14px;color:var(--color-fg-muted)}
+.k-tq-nav{display:flex;align-items:center;gap:var(--space-3)}
+.k-tq-count{margin-right:var(--space-2);font-size:14px;font-weight:600;color:var(--color-fg-muted);font-feature-settings:var(--font-numeric)}
+.k-tq-count b{color:var(--color-fg-primary)}
+.k-tq-a,.k-tq-b{animation:k-tq-in 520ms var(--ease-standard) both}
+.k-tq-b{animation-name:k-tq-in2}
+@keyframes k-tq-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes k-tq-in2{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.k-tq-more{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:var(--space-6);font-size:15px;font-weight:600;color:#fff;text-decoration:none}
+.k-tq-more svg{width:18px;height:18px;transition:transform 240ms var(--ease-standard)}
+.k-tq-more:hover svg{transform:translateX(4px)}
+@media (max-width:767px){.k-tq-card{min-height:0;padding:var(--space-8)}.k-tq-card::before{font-size:200px;right:12px}}
+@media (prefers-reduced-motion:reduce){.k-tq-a,.k-tq-b{animation:none}}
+.k-nw-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--space-6);margin-bottom:var(--space-10)}
+.k-nw-all{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--color-fg-primary);text-decoration:none}
+.k-nw-all span{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--color-brand-red);color:#fff;transition:transform 240ms var(--ease-standard)}
+.k-nw-all svg{width:18px;height:18px}
+.k-nw-all:hover span{transform:translateX(4px)}
+.k-nw-meta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);font-size:13px;font-weight:600}
+.k-nw-cat{padding:5px 12px;border-radius:var(--radius-full);background:var(--color-brand-red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.k-nw-more{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700}
+.k-nw-more svg{width:18px;height:18px;transition:transform 240ms var(--ease-standard)}
+.k-nw-link{position:absolute;inset:0;z-index:1;border-radius:inherit}
+.k-nw-link:focus-visible{outline:3px solid var(--color-line-focus);outline-offset:3px}
+.k-nw{display:grid;gap:var(--space-6);grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1023px){.k-nw{display:flex;gap:var(--space-4);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--space-gutter);scrollbar-width:none;margin:0 calc(var(--space-gutter)*-1);padding:2px var(--space-gutter) var(--space-4)}.k-nw::-webkit-scrollbar{display:none}.k-nw-card{flex:0 0 min(46%,360px);scroll-snap-align:start}}
+@media (max-width:639px){.k-nw-card{flex-basis:82%}}
+.k-nw-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4;min-height:420px;padding:var(--space-7);border-radius:16px;overflow:hidden;color:#fff;isolation:isolate;background:var(--c-navy-950)}
+.k-nw-card>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 900ms var(--ease-standard)}
+.k-nw-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,28,54,.05) 0%,rgba(3,28,54,0) 30%,rgba(3,28,54,.55) 58%,rgba(3,28,54,.92) 100%);transition:background 500ms var(--ease-standard)}
+.k-nw-card:hover>img,.k-nw-card:focus-within>img{transform:scale(1.06)}
+.k-nw-card:hover::before,.k-nw-card:focus-within::before{background:linear-gradient(180deg,rgba(3,28,54,.1) 0%,rgba(3,28,54,.35) 25%,rgba(3,28,54,.8) 55%,rgba(3,28,54,.96) 100%)}
+.k-nw-card .k-nw-cat{align-self:flex-start;margin-bottom:var(--space-4)}
+.k-nw-cat.is-navy{background:var(--c-navy-600)}
+.k-nw-card h3{font-size:clamp(1.25rem,1rem + .6vw,1.6rem);line-height:1.25;font-weight:700;letter-spacing:-.01em;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:2px;text-underline-offset:6px;transition:text-decoration-color 400ms var(--ease-standard)}
+.k-nw-card:hover h3,.k-nw-card:focus-within h3{text-decoration-color:#fff}
+.k-nw-reveal{display:grid;grid-template-rows:0fr;transition:grid-template-rows 560ms var(--ease-standard)}
+.k-nw-reveal>div{min-height:0;overflow:hidden}
+.k-nw-reveal-in{display:grid;gap:var(--space-5);padding-top:var(--space-4);opacity:0;transform:translateY(24px);transition:opacity 420ms var(--ease-standard),transform 560ms var(--ease-standard)}
+.k-nw-card:hover .k-nw-reveal,.k-nw-card:focus-within .k-nw-reveal{grid-template-rows:1fr}
+.k-nw-card:hover .k-nw-reveal-in,.k-nw-card:focus-within .k-nw-reveal-in{opacity:1;transform:none;transition-delay:80ms}
+.k-nw-ex{font-size:15px;line-height:1.6;color:rgba(255,255,255,.85)}
+.k-nw-card .k-nw-more{gap:var(--space-4);font-size:17px;font-weight:700}
+.k-nw-card .k-nw-more span{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--color-brand-red);transition:transform 320ms var(--ease-standard)}
+.k-nw-card .k-nw-more svg{width:20px;height:20px}
+.k-nw-card:hover .k-nw-more span{transform:translateX(4px)}
+@media (hover:none){.k-nw-reveal{grid-template-rows:1fr}.k-nw-reveal-in{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.k-nw-reveal,.k-nw-reveal-in,.k-nw-card>img{transition:none}}
+
+.k-cta{position:relative;overflow:hidden;isolation:isolate;padding:clamp(3rem,2rem + 3vw,4.5rem) 0;background:var(--c-navy-950);color:#fff}
+.k-cta-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:right center}
+.k-cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,28,54,.96) 0%,rgba(3,28,54,.9) 34%,rgba(3,28,54,.55) 50%,rgba(3,28,54,.08) 66%,rgba(3,28,54,0) 100%)}
+.k-cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;z-index:-1;background:linear-gradient(0deg,rgba(3,28,54,.6),transparent)}
+.k-cta-in{display:grid;gap:var(--space-5);max-width:780px}
+.k-cta-in>h2,.k-cta-in>.k-cta-sub{max-width:620px}
+.k-cta h2{font-size:clamp(2.25rem,1.6rem + 2.4vw,3.5rem);line-height:1.08;font-weight:700;letter-spacing:-.025em}
+.k-cta-sub{font-size:var(--type-body-lg-size);line-height:1.6;color:rgba(255,255,255,.82);max-width:50ch}
+.k-cta-btns{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-2)}
+.k-cta-btns .k-btn svg{width:20px;height:20px}
+.k-cta-contacts{display:grid;gap:var(--space-4);grid-template-columns:repeat(3,minmax(0,max-content));margin-top:var(--space-3);padding-top:var(--space-6);border-top:1px solid rgba(255,255,255,.14)}
+.k-cta-contacts-t{grid-column:1/-1;margin-bottom:var(--space-1);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-red-300)}
+.k-cta-c{display:flex;align-items:center;gap:var(--space-4);padding:10px 30px 10px 10px;border-radius:var(--radius-full);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;text-decoration:none;transition:background 240ms var(--ease-standard),border-color 240ms var(--ease-standard)}
+.k-cta-c:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+.k-cta-c:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.k-cta-c>span:first-child{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:var(--color-brand-red)}
+.k-cta-c svg{width:18px;height:18px}
+.k-cta-c small{display:block;font-size:12px;line-height:1.3;color:rgba(255,255,255,.65)}
+.k-cta-c b{display:block;font-size:15px;line-height:1.35;font-weight:700;white-space:nowrap}
+@media (max-width:1023px){.k-cta{padding-top:0}.k-cta-bg{position:relative;z-index:0;width:100%;height:280px;object-position:72% center}.k-cta::before{background:linear-gradient(180deg,rgba(3,28,54,0) 0,rgba(3,28,54,0) 160px,rgba(3,28,54,1) 280px)}.k-cta::after{display:none}.k-cta-in{position:relative;margin-top:calc(var(--space-10)*-1)}.k-cta-contacts{grid-template-columns:minmax(0,1fr)}}
+.k-flag{flex:none;width:20px;height:20px;border-radius:50%;box-shadow:0 0 0 1px rgba(14,18,26,.12)}
+.k-nav-link[aria-current=page]{font-weight:700}
+.k-nav-link.text-fg-inverse[aria-current=page]{color:#fff}
+@media (min-width:1024px){.k-nav-link{height:88px}}
+.k-mega{border-top:0;box-shadow:0 16px 32px rgba(14,18,26,.12)}
+.k-mnav-home[aria-current=page]{color:var(--c-red-600);box-shadow:inset 3px 0 0 var(--color-brand-red)}
+.k-ft{position:relative;background:var(--c-navy-950);color:var(--color-fg-inverse-muted);overflow:hidden}
+.k-ft::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(36,112,181,.25),transparent 45%);pointer-events:none}
+.k-ft-in{position:relative;width:100%;max-width:var(--layout-container);margin:0 auto;padding:var(--space-12) var(--space-gutter) var(--space-8)}
+.k-ft-top{display:grid;gap:var(--space-8);grid-template-columns:minmax(0,1fr)}
+@media (min-width:768px){.k-ft-top{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.k-ft-top{grid-template-columns:minmax(0,4fr) repeat(3,minmax(0,2fr)) minmax(0,3fr)}}
+.k-ft-brand{display:grid;align-content:start;gap:var(--space-4)}
+.k-ft-brand img{height:44px;width:auto}
+.k-ft-name{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.k-ft-addr{display:flex;gap:var(--space-3);font-size:14px;line-height:1.55}
+.k-ft-addr svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--c-red-300)}
+.k-ft-social{display:flex;gap:var(--space-3)}
+.k-ft-social a{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);color:#fff;transition:background 240ms var(--ease-standard),border-color 240ms var(--ease-standard)}
+.k-ft-social a:hover{background:var(--color-brand-red);border-color:var(--color-brand-red)}
+.k-ft-social svg{width:19px;height:19px}
+.k-ft h2{margin-bottom:var(--space-4);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.k-ft ul{display:grid;gap:var(--space-2);margin:0;padding:0;list-style:none;font-size:14px}
+.k-ft a{color:var(--color-fg-inverse-muted);text-decoration:none;transition:color 200ms var(--ease-standard)}
+.k-ft ul a:hover{color:#fff}
+.k-ft-contact li a{display:flex;align-items:center;gap:var(--space-3)}
+.k-ft-contact li a>span:first-child{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;transition:background 200ms var(--ease-standard)}
+.k-ft-contact li a:hover>span:first-child{background:var(--color-brand-red)}
+.k-ft-contact svg{width:14px;height:14px}
+.k-ft-trust{display:grid;gap:var(--space-8);grid-template-columns:minmax(0,1fr);margin-top:var(--space-8);padding-top:var(--space-6);border-top:1px solid rgba(255,255,255,.1)}
+@media (min-width:1024px){.k-ft-trust{grid-template-columns:auto auto 1fr;align-items:end;gap:var(--space-10)}}
+.k-ft-trust p{margin-bottom:var(--space-2);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.k-ft-logos{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.k-ft-logo{display:grid;place-items:center;height:48px;padding:0 var(--space-3);border-radius:8px;background:#fff;transition:transform 240ms var(--ease-standard)}
+a.k-ft-logo:hover{transform:translateY(-2px)}
+.k-ft-logo img{height:32px;width:auto}
+.k-ft-trust>div:last-child{justify-self:start}
+@media (min-width:1024px){.k-ft-trust>div:last-child{justify-self:end}}
+.k-ft-bottom{position:relative;border-top:1px solid rgba(255,255,255,.1)}
+.k-ft-bottom-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-4);max-width:var(--layout-container);margin:0 auto;padding:var(--space-4) var(--space-gutter);font-size:13px}
+.k-ft-bottom-in nav{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-6)}
+.k-ft-bottom-in a:hover{color:#fff}
+.k-ft-top-btn{display:inline-flex;align-items:center;gap:var(--space-2);font-weight:600;color:#fff!important}
+.k-ft-top-btn span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);transition:background 200ms var(--ease-standard)}
+.k-ft-top-btn:hover span{background:var(--color-brand-red)}
+.k-ft-top-btn svg{width:16px;height:16px}
+/* Floating action */
+.k-fab{position:fixed;right:24px;bottom:24px;z-index:30;display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-3)}
+.k-fab-x{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:2px solid #fff;background:var(--c-navy-800);color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(3,28,54,.25);transition:background 200ms var(--ease-standard)}
+.k-fab-x:hover{background:var(--color-brand-red)}
+.k-fab-x svg{width:18px;height:18px}
+.k-fab-btn{display:flex;align-items:center;gap:var(--space-3);min-width:220px;padding:14px 22px;border-radius:12px;color:#fff;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px rgba(3,28,54,.25);transition:transform 240ms var(--ease-standard),filter 240ms}
+.k-fab-btn:hover{transform:translateX(-4px);filter:brightness(1.08)}
+.k-fab-btn svg{width:24px;height:24px}
+.k-fab-btn.is-cat{background:var(--c-navy-800)}
+.k-fab-btn.is-wa{background:#25a95a}
+.k-fab-open{animation:k-fab-in 420ms var(--ease-standard) both}
+@keyframes k-fab-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.k-fab-mini{position:fixed;right:0;bottom:24px;z-index:30;display:flex;align-items:center;gap:var(--space-2);padding:8px 10px 8px 6px;border-radius:999px 0 0 999px;background:var(--c-navy-800);box-shadow:0 10px 24px rgba(3,28,54,.3);animation:k-fab-in 420ms var(--ease-standard) both}
+.k-fab-mini button{display:grid;place-items:center;width:36px;height:44px;border:0;background:transparent;color:#fff;cursor:pointer}
+.k-fab-mini button svg{width:20px;height:20px}
+.k-fab-mini a{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--c-navy-800);transition:transform 200ms var(--ease-standard)}
+.k-fab-mini a.is-wa{background:#25a95a;color:#fff}
+.k-fab-mini a:hover{transform:scale(1.06)}
+.k-fab-mini a svg{width:22px;height:22px}
+.k-fab-x:focus-visible,.k-fab-btn:focus-visible,.k-fab-mini button:focus-visible,.k-fab-mini a:focus-visible{outline:2px solid var(--color-line-focus);outline-offset:2px}
+@media (max-width:639px){.k-fab{right:16px;bottom:16px}.k-fab-btn{min-width:0;padding:12px 16px;font-size:14px}}
+@media (prefers-reduced-motion:reduce){.k-fab-open,.k-fab-mini{animation:none}}
+/* Global a:hover turns links navy-900; keep styled links legible on dark and colored surfaces */
+a.k-btn-primary:hover,a.k-btn-inverse:hover,a.k-cta-c:hover,a.k-fab-btn:hover,a.k-tq-more:hover,a.k-prop-help-link:hover,.k-hero-proof a:hover,.k-ft-social a:hover,.k-ft-contact a:hover,.k-ft ul a:hover,.k-ft-bottom-in a:hover,.k-on-dark a:not([class]):hover{color:#fff}
+a.k-nw-all:hover{color:var(--c-red-600)}
+.k-fab-mini a:hover{color:var(--c-navy-800)}
+.k-fab-mini a.is-wa:hover{color:#fff}
+a.k-nav-link.text-fg-inverse:hover{color:#fff}
+.k-hero-layer{transition:opacity 900ms var(--ease-standard)}
+.k-hero::before{transition:background 900ms var(--ease-standard)}
+.k-hero:not([data-slide="0"])::before{background:linear-gradient(90deg,rgba(3,28,54,.82) 0%,rgba(3,28,54,.55) 45%,rgba(3,28,54,.2) 100%)}
+.k-hero-layer[data-on="false"]{opacity:0}
+img.k-hero-layer{object-fit:cover;object-position:center}
+.k-hero-inner{flex:1 1 auto;align-content:center;padding-top:calc(var(--layout-nav-height) + var(--space-10))}
+@media (min-width:1024px){.k-hero-inner{padding-top:calc(88px + var(--space-10));padding-bottom:calc(112px + var(--space-10))!important}}
+.k-hero-eyebrow{color:#fff}
+.k-hs-0,.k-hs-1,.k-hs-2{animation:k-hs-0 700ms var(--ease-standard) both}.k-hs-1{animation-name:k-hs-1}.k-hs-2{animation-name:k-hs-2}
+@keyframes k-hs-0{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes k-hs-1{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes k-hs-2{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.k-hs-0,.k-hs-1,.k-hs-2{animation:none}}
+.k-hero-controls{align-items:center;gap:var(--space-4)}
+.k-hero-vctl{display:flex;gap:var(--space-2)}
+.k-hero-nav{display:flex;align-items:center;gap:var(--space-3)}
+.k-hero-arrow{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(3,28,54,.35);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background 200ms var(--ease-standard),border-color 200ms var(--ease-standard)}
+.k-hero-arrow:hover{background:var(--color-brand-red);border-color:var(--color-brand-red)}
+.k-hero-arrow svg{width:20px;height:20px}
+.k-hero-count{min-width:52px;text-align:center;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);font-feature-settings:var(--font-numeric)}
+.k-hero-count b{color:#fff}
+.k-hero-dots{display:flex;gap:6px}
+.k-hero-dot{width:24px;height:4px;padding:0;border:0;border-radius:4px;background:rgba(255,255,255,.35);cursor:pointer;transition:width 320ms var(--ease-standard),background 320ms var(--ease-standard)}
+.k-hero-dot[aria-current="true"]{width:40px;background:var(--color-brand-red)}
+@media (max-width:639px){.k-hero-count,.k-hero-dots{display:none}.k-hero-controls{flex-wrap:wrap;justify-content:flex-end}}
+.k-pin-wave{opacity:0;transform-box:fill-box;transform-origin:center;animation:k-pin-wave 2.4s cubic-bezier(.2,.6,.3,1) infinite}
+.k-pin-wave-2{animation-delay:1.2s}
+@keyframes k-pin-wave{0%{opacity:.45;transform:scale(1)}100%{opacity:0;transform:scale(4.2)}}
+.k-pin-core{transform-box:fill-box;transform-origin:center;animation:k-pin-core 2.4s ease-in-out infinite}
+@keyframes k-pin-core{0%,100%{transform:scale(1)}50%{transform:scale(.55)}}
+.k-pin-badge{transform-box:fill-box;transform-origin:0% 100%;animation:k-pin-pop 600ms cubic-bezier(.3,1.5,.5,1) both}
+@keyframes k-pin-pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.k-pin-wave{animation:none;opacity:.2;transform:scale(2.2)}.k-pin-wave-2{display:none}.k-pin-core,.k-pin-badge{animation:none}}
+</style>
+</helmet>
+<div class="font-sans text-fg-primary bg-surface-page">
+
+<sc-if value="{{scrimOn}}" hint-placeholder-val="{{ false }}">
+  <div class="fixed inset-0 z-[35]" style="background: var(--color-surface-overlay-modal)" onClick="{{closeAll}}"></div>
+</sc-if>
+<header class="fixed inset-x-0 top-0 z-nav transition-colors duration-fast {{hdrScrimCls}}" style="background: {{hdrBg}}; backdrop-filter: {{hdrFilter}}; -webkit-backdrop-filter: {{hdrFilter}}; box-shadow: {{hdrShadow}}; border-bottom: 1px solid {{hdrBorder}}" onKeyDown="{{onKey}}">
+  <div class="k-container flex h-nav items-center gap-6 lg:h-[88px] lg:gap-10">
+    <a href="#top" class="flex-none"><img src="{{logoSrc}}" alt="KIIC — Karawang International Industrial City" style="height: 40px; width: auto; display: block"></a>
+    <nav class="hidden flex-1 items-center gap-1 lg:flex" aria-label="Menu utama">
+      <a class="{{linkCls}} k-nav-home" href="#top" aria-current="page">Beranda</a>
+      <button class="{{linkCls}}" aria-expanded="{{prideExpanded}}" aria-controls="mega-pride" onClick="{{togglePride}}">Pride of KIIC <svg class="k-nav-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      <button class="{{linkCls}}" aria-expanded="{{propExpanded}}" aria-controls="mega-prop" onClick="{{toggleProp}}">Properti <svg class="k-nav-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      <a class="{{linkCls}}" href="#tenant">Tenant</a>
+      <a class="{{linkCls}}" href="#tentang">Tentang KIIC</a>
+      <a class="{{linkCls}}" href="#berita">Berita</a>
+    </nav>
+    <div class="ml-auto flex items-center gap-1">
+      <button class="{{iconCls}}" aria-label="Cari di situs" aria-expanded="{{searchExpanded}}" onClick="{{toggleSearch}}"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"></circle><path d="M14 14l4 4"></path></svg></button>
+      <div class="relative max-lg:hidden">
+        <button class="{{langCls}}" aria-haspopup="true" aria-expanded="{{langExpanded}}" aria-label="Pilih bahasa, saat ini {{langLabel}}" onClick="{{toggleLang}}"><img class="k-flag" src="{{langFlag}}" alt="" width="20" height="20"><span>{{langCode}}</span><svg class="k-nav-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+        <sc-if value="{{langOpen}}" hint-placeholder-val="{{ false }}">
+          <div class="k-dropdown-menu" role="menu" aria-label="Bahasa" style="left: auto; right: 0">
+            <sc-for list="{{langs}}" as="l" hint-placeholder-count="5">
+              <button class="k-dropdown-item justify-between" role="menuitemradio" aria-checked="{{l.checked}}" lang="{{l.lang}}" onClick="{{l.pick}}"><span class="flex items-center gap-3"><img class="k-flag" src="{{l.flag}}" alt="" width="20" height="20">{{l.label}}</span><span class="text-caption text-fg-secondary">{{l.code}}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="#kunjungan" class="k-btn k-btn-primary ml-2 max-md:hidden">Ajukan kunjungan</a>
+      <button class="{{iconCls}} lg:hidden" aria-label="Buka menu" aria-expanded="{{mobileExpanded}}" onClick="{{toggleMobile}}"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"></path></svg></button>
+    </div>
+  </div>
+
+  <sc-if value="{{isPride}}" hint-placeholder-val="{{ false }}">
+    <div class="k-mega" id="mega-pride">
+      <div class="k-mega-inner">
+        <div class="k-mega-intro grid content-start gap-3"><p class="text-h3">Pride of KIIC</p><p class="text-body-sm text-fg-secondary">Infrastruktur, akses, dan lingkungan untuk operasional jangka panjang.</p></div>
+        <div class="k-mega-list lg:col-span-5" style="grid-template-columns: minmax(0, 1fr)">
+          <a class="k-mega-item" href="#mengapa"><strong>Infrastruktur dan utilitas</strong><span>Listrik 500 kV, air industri, gas, fiber, drainase</span></a>
+          <a class="k-mega-item" href="#"><strong>Akses dan lokasi</strong><span>Tol Jakarta–Cikampek, bandara, pusat Karawang</span></a>
+          <a class="k-mega-item" href="#"><strong>Fasilitas sekitar</strong><span>Rumah sakit, perumahan, bank, pusat belanja</span></a>
+        </div>
+        <div class="k-on-dark grid content-between gap-6 rounded bg-surface-brand p-6 text-fg-inverse lg:col-span-3">
+          <p class="flex items-baseline gap-2"><span class="text-stat k-num">500</span><span class="text-stat-unit text-fg-inverse-muted">kV</span></p>
+          <p class="text-body-sm text-fg-inverse-muted">Jaringan listrik PLN masuk dari dua arah, dengan kontrak suplai prioritas.</p>
+          <a href="#" class="k-btn k-btn-inverse k-btn-sm" style="justify-self: start">Unduh katalog</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{isProp}}" hint-placeholder-val="{{ false }}">
+    <div class="k-mega" id="mega-prop">
+      <div class="k-mega-inner">
+        <div class="k-mega-intro grid content-start gap-3"><p class="text-h3">Properti</p><p class="text-body-sm text-fg-secondary">Gudang, unit komersial, dan area ekspansi di dalam kawasan.</p></div>
+        <div class="k-mega-list lg:col-span-5" style="grid-template-columns: minmax(0, 1fr)">
+          <a class="k-mega-item" href="#properti"><strong>Sewa gudang</strong><span>Gudang siap pakai dan build-to-suit</span></a>
+          <a class="k-mega-item" href="#"><strong>Pabrik, kantor, dan function hall</strong><span>Unit komersial dengan opsi sewa fleksibel</span></a>
+          <a class="k-mega-item" href="#"><strong>Area ekspansi</strong><span>Pengembangan kawasan berikutnya</span></a>
+        </div>
+        <div class="grid content-between gap-6 rounded border border-line bg-surface-subtle p-6 lg:col-span-3">
+          <p class="text-h5">Belum yakin properti mana yang cocok?</p>
+          <p class="text-body-sm text-fg-secondary">Tim penjualan membantu mencocokkan kebutuhan luas, waktu, dan jenis industri Anda.</p>
+          <a href="#kunjungan" class="k-btn k-btn-primary k-btn-sm" style="justify-self: start">Ajukan kunjungan lokasi</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{search}}" hint-placeholder-val="{{ false }}">
+    <div class="absolute inset-x-0 top-full border-b border-line bg-surface-page shadow-md">
+      <div class="k-container grid gap-6 py-8" style="max-width: 880px">
+        <div class="flex items-center gap-3">
+          <label for="k-search-input" class="k-sr-only">Cari di situs KIIC</label>
+          <div class="relative flex-1">
+            <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-fg-muted"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"></circle><path d="M14 14l4 4"></path></svg></span>
+            <input id="k-search-input" class="k-input text-body-lg" style="min-height: 56px; padding-left: 3rem" type="search" placeholder="Cari gudang, listrik, akses tol…" autocomplete="off" value="{{query}}" onChange="{{onQuery}}">
+          </div>
+          <button class="k-btn k-btn-ghost" onClick="{{closeAll}}"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"></path></svg>Tutup</button>
+        </div>
+        <sc-if value="{{showPopular}}" hint-placeholder-val="{{ true }}">
+          <div class="grid gap-3"><p class="text-label text-fg-secondary">Pencarian populer</p>
+            <div class="flex flex-wrap gap-2"><sc-for list="{{popular}}" as="p" hint-placeholder-count="4"><button class="k-btn k-btn-outline k-btn-sm" onClick="{{p.pick}}">{{p.label}}</button></sc-for></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{hasResults}}" hint-placeholder-val="{{ false }}">
+          <div class="grid gap-1">
+            <p class="text-caption text-fg-secondary" role="status">{{resultCount}} halaman cocok</p>
+            <sc-for list="{{results}}" as="r" hint-placeholder-count="3">
+              <a class="k-mega-item" href="#"><strong>{{r.t}}</strong><span>{{r.s}}</span></a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
+          <div class="grid gap-2 rounded bg-surface-subtle p-6" role="status"><p class="text-label">Tidak ada halaman untuk “{{query}}”</p><p class="text-body-sm text-fg-secondary">Coba kata lain, atau tanyakan langsung ke tim penjualan lewat WhatsApp.</p></div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{mobile}}" hint-placeholder-val="{{ false }}">
+    <nav class="absolute inset-x-0 top-full overflow-y-auto border-t border-line bg-surface-page shadow-md lg:hidden" style="max-height: calc(100vh - 72px)" aria-label="Menu utama mobile">
+      <div class="grid">
+        <a class="block px-5 py-4 text-label k-mnav-home" style="text-decoration: none" href="#top" aria-current="page">Beranda</a>
+        <p class="border-t border-line px-5 pt-5 text-label text-fg-secondary">Pride of KIIC</p>
+        <a class="block px-5 py-3 text-body-md text-fg-primary" style="text-decoration: none" href="#mengapa">Infrastruktur dan utilitas</a>
+        <a class="block px-5 py-3 text-body-md text-fg-primary" style="text-decoration: none" href="#">Akses dan lokasi</a>
+        <a class="block px-5 py-3 text-body-md text-fg-primary" style="text-decoration: none" href="#">Fasilitas sekitar</a>
+        <p class="border-t border-line px-5 pt-5 text-label text-fg-secondary">Properti</p>
+        <a class="block px-5 py-3 text-body-md text-fg-primary" style="text-decoration: none" href="#properti">Sewa gudang</a>
+        <a class="block px-5 py-3 text-body-md text-fg-primary" style="text-decoration: none" href="#">Pabrik, kantor, dan function hall</a>
+        <a class="block px-5 py-3 text-body-md text-fg-primary" style="text-decoration: none" href="#">Area ekspansi</a>
+        <div class="grid border-t border-line py-2">
+          <a class="block px-5 py-3 text-label text-fg-primary" style="text-decoration: none" href="#tenant">Tenant</a>
+          <a class="block px-5 py-3 text-label text-fg-primary" style="text-decoration: none" href="#tentang">Tentang KIIC</a>
+          <a class="block px-5 py-3 text-label text-fg-primary" style="text-decoration: none" href="#berita">Berita</a>
+        </div>
+        <div class="grid gap-3 border-t border-line p-5">
+          <p class="text-label text-fg-secondary">Bahasa</p>
+          <div class="flex flex-wrap gap-2"><sc-for list="{{langs}}" as="l" hint-placeholder-count="5"><button class="{{l.chipCls}}" aria-pressed="{{l.checked}}" lang="{{l.lang}}" onClick="{{l.pick}}"><img class="k-flag" src="{{l.flag}}" alt="" width="18" height="18">{{l.short}}</button></sc-for></div>
+          <a href="#kunjungan" class="k-btn k-btn-primary mt-2" style="width: 100%">Ajukan kunjungan lokasi</a>
+        </div>
+      </div>
+    </nav>
+  </sc-if>
+</header>
+
+<main id="top">
+<section ref="{{heroRef}}" class="k-hero k-on-dark" aria-label="Pembuka" aria-roledescription="carousel" data-slide="{{heroSlideN}}">
+  <div class="k-hero-media k-hero-video k-hero-layer" aria-hidden="true" data-on="{{heroS0}}">
+    <iframe ref="{{heroVideoRef}}" src="{{heroVideoSrc}}" title="Video profil KIIC" tabindex="-1" style="opacity: {{heroVideoOpacity}}; transition: opacity 800ms var(--ease-standard)" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" onLoad="{{heroVideoLoaded}}"></iframe>
+  </div>
+  <img class="k-hero-media k-hero-layer" src="./assets/hero-akses.webp?v=2" alt="" aria-hidden="true" data-on="{{heroS1}}" width="1586" height="992">
+  <img class="k-hero-media k-hero-layer" src="./assets/hero-infra.webp?v=2" alt="" aria-hidden="true" data-on="{{heroS2}}" width="1440" height="900">
+  <div class="k-hero-inner">
+    <div class="k-hero-copy {{heroAnim}}" aria-roledescription="slide" aria-label="{{heroSlideLabel}}">
+      <p class="k-eyebrow-red k-hero-eyebrow">{{heroEyebrow}}</p>
+      <h1 class="k-hero-title">{{heroTitle}}</h1>
+      <p class="k-hero-lead">{{heroLead}}</p>
+      <div class="k-hero-actions">
+        <a href="{{heroC1h}}" class="k-btn k-btn-primary k-btn-lg">{{heroC1}}</a>
+        <a href="{{heroC2h}}" class="k-btn k-btn-inverse k-btn-lg">{{heroC2}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="k-hero-bar">
+    <div class="k-hero-bar-inner">
+      <div class="k-hero-bar-head">
+        <p class="k-hero-bar-tag">Sales &amp; Marketing</p>
+        <p class="k-hero-bar-title" id="hero-contact-title">Tim Sales &amp; Marketing kami</p>
+      </div>
+      <ul class="k-hero-proof" aria-labelledby="hero-contact-title">
+        <li><a href="tel:+6281113407225"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L12 10.5l4 1.5v3a2 2 0 01-2 2A12 12 0 012 5a2 2 0 012-2z"></path></svg><span class="k-hero-c-text"><span class="k-hero-c-label">Telepon</span>+62 811 1340 7225</span></a></li>
+        <li><a href="https://wa.me/6281113407225" target="_blank" rel="noopener"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 16.5l1-3.5a7 7 0 112.6 2.6z"></path><path d="M7.5 7.5c0 2.5 2.5 5 5 5l1-1.5-1.8-.9-.8.8a4 4 0 01-1.8-1.8l.8-.8-.9-1.8z" fill="currentColor" stroke="none"></path></svg><span class="k-hero-c-text"><span class="k-hero-c-label">WhatsApp</span>+62 811 1340 7225</span></a></li>
+        <li><a href="mailto:sales@kiic.co.id"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"></rect><path d="M3 5.5l7 5.5 7-5.5"></path></svg><span class="k-hero-c-text"><span class="k-hero-c-label">Email</span>sales@kiic.co.id</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-hero-controls">
+  <sc-if value="{{heroIsVideo}}" hint-placeholder-val="{{ true }}"><div class="k-hero-vctl">
+  <button class="k-hero-pause k-hero-sound" aria-pressed="{{heroMutedAttr}}" aria-label="{{heroSoundLabel}}" title="{{heroSoundLabel}}" onClick="{{toggleHeroSound}}">
+    <sc-if value="{{heroMuted}}"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l4-4v12l-4-4H3z" fill="currentColor"></path><path d="M13 8l4 4M17 8l-4 4"></path></svg></sc-if>
+    <sc-if value="{{heroUnmuted}}"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l4-4v12l-4-4H3z" fill="currentColor"></path><path d="M13 7.5a3.5 3.5 0 010 5M15.5 5a7 7 0 010 10"></path></svg></sc-if>
+  </button>
+  <button class="k-hero-pause" aria-pressed="{{heroPausedAttr}}" onClick="{{toggleHeroVideo}}">
+    <sc-if value="{{heroPaused}}"><svg class="k-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"></path></svg></sc-if>
+    <sc-if value="{{heroPlaying}}"><svg class="k-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="3" height="12"></rect><rect x="12" y="4" width="3" height="12"></rect></svg></sc-if>
+    <span>{{heroPauseLabel}}</span>
+  </button>
+  </div></sc-if>
+  <div class="k-hero-nav" role="group" aria-label="Navigasi slide">
+    <button type="button" class="k-hero-arrow" aria-label="Slide sebelumnya" onClick="{{heroPrev}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg></button>
+    <span class="k-hero-count" aria-live="polite"><b>{{heroNum}}</b> / 03</span>
+    <div class="k-hero-dots"><sc-for list="{{heroDots}}" as="d" hint-placeholder-count="3"><button type="button" class="k-hero-dot" aria-current="{{d.cur}}" aria-label="{{d.label}}" onClick="{{d.go}}"></button></sc-for></div>
+    <button type="button" class="k-hero-arrow" aria-label="Slide berikutnya" onClick="{{heroNext}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></button>
+  </div>
+  </div>
+</section>
+
+<section ref="{{mapSectionRef}}" id="tentang" class="relative" style="height: {{mapSecH}}; background: #f3f5ef" aria-labelledby="{{mapTitleId}}">
+  <div class="k-on-dark sticky top-0 overflow-hidden text-fg-inverse" style="height: min(100vh, 900px)">
+    <svg class="k-map-svg absolute inset-0 h-full w-full" viewBox="0 0 1400 692" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Peta akses KIIC: tol Jakarta–Cikampek, Jakarta, Bandara Soekarno-Hatta, Pelabuhan Tanjung Priok, Outer Ring Road II, LRT, MRT, kereta cepat Jakarta–Bandung, Pelabuhan Patimban, dan Bandara Kertajati">
+      <rect width="1400" height="692" fill="#f3f5ef"></rect>
+      <g style="transform: {{mapTransform}}; transform-origin: 0 0; transition: transform 1100ms var(--ease-standard)">
+      <rect x="-1400" y="-700" width="4200" height="2100" fill="#f3f5ef"></rect>
+      <path d="M-1400 -700 H378 V0 C374 30 366 55 352 75 C340 92 322 108 294 118 C262 126 225 132 190 130 C160 128 135 122 112 114 C92 106 70 92 50 76 C30 62 15 56 0 54 L-1400 54 Z" fill="#5d9fd8"></path>
+      <path d="M700 -700 H2800 V280 L1400 280 C1370 288 1345 304 1330 301 C1310 306 1300 300 1290 300 C1270 285 1258 272 1246 266 C1215 245 1180 222 1148 217 C1125 214 1110 216 1100 214 C1080 212 1060 214 1040 212 C1000 208 960 204 920 196 C880 186 830 170 790 156 C760 146 740 125 720 108 C710 100 702 92 700 84 Z" fill="#5d9fd8"></path>
+      <path d="M602 448 C618 444 634 444 644 448 C658 456 668 466 672 476 C680 494 686 514 686 532 C674 546 658 552 644 560 C652 576 662 592 665 609 C656 630 644 650 630 665 C616 672 600 674 588 672 C580 660 575 645 574 630 C582 612 594 594 602 574 C594 560 584 546 581 532 C586 516 594 503 602 490 C598 476 598 460 602 448 Z" fill="#5d9fd8" stroke="#4a8cc8" vector-effect="non-scaling-stroke"></path>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#a9cdec" stroke-width="1.4">
+          <path d="M665 448 C660 425 656 408 651 392 C638 376 624 362 609 350 C592 338 574 326 560 315 C552 300 547 284 546 266 C552 246 564 228 574 210 C582 188 590 162 595 140 C602 110 610 60 616 0" vector-effect="non-scaling-stroke"></path>
+          <path d="M182 520 C190 485 198 452 205 420 C212 390 218 360 222 330 C226 303 228 276 230 250 C232 225 234 200 236 180 C240 160 245 140 250 125" vector-effect="non-scaling-stroke"></path>
+          <path d="M150 520 C142 485 136 452 130 420 C122 390 113 360 105 330 C96 303 88 277 80 250 C72 215 66 182 60 150 C56 125 50 95 45 70" vector-effect="non-scaling-stroke"></path>
+          <path d="M1000 560 C1006 523 1013 486 1020 450 C1027 416 1033 383 1040 350 C1047 320 1053 290 1060 260 C1065 243 1070 228 1075 215" vector-effect="non-scaling-stroke"></path>
+        </g>
+        <g style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)">
+          <path d="M105 112 C92 130 82 175 80 210 C80 240 84 258 95 270 C110 290 128 300 140 308 C160 325 185 338 210 343 C250 350 280 351 301 350 C340 349 365 348 378 343 C390 338 398 320 406 301 C414 280 416 255 420 231 C425 205 432 185 434 168 C436 145 430 125 420 115 C380 117 330 120 266 126" stroke="#d6243a" stroke-width="3.5" stroke-dasharray="2 6" vector-effect="non-scaling-stroke"></path>
+          <path d="M105 115 C130 125 150 132 175 133 C210 134 240 126 259 126 C280 126 290 128 294 133 C310 160 318 185 315 210 C313 240 312 265 308 280 C290 290 275 291 259 291 C235 291 215 290 203 287 C180 282 160 276 150 266 C140 245 138 220 136 196 C134 170 128 150 122 140 C116 130 110 120 105 115" stroke="#f2b200" stroke-width="4" vector-effect="non-scaling-stroke"></path>
+          <path d="M168 137 C180 160 190 180 203 196 C215 212 228 225 241 231 C255 228 262 220 266 210 C268 180 266 150 265 126" stroke="#f2b200" stroke-width="3.5" vector-effect="non-scaling-stroke"></path>
+          <path d="M259 291 C262 310 264 330 264 350 C263 375 262 400 262 420 C252 445 242 468 231 490 C222 515 212 538 203 560 C195 600 188 645 182 692" stroke="#f2b200" stroke-width="4" vector-effect="non-scaling-stroke"></path>
+          <path d="M217 228 C250 229 285 230 315 231 C370 248 420 265 469 284 M245 231 C250 252 254 274 254 294 L254 350 C250 375 243 398 237 420 C231 445 225 468 220 490 C211 497 202 500 194 504 C190 514 187 523 184 532" stroke="#6d6fc9" stroke-width="4" vector-effect="non-scaling-stroke"></path>
+          <path d="M105 115 C110 130 115 145 119 150 C135 160 152 168 168 175 C182 183 195 190 203 196 C210 205 214 218 217 228" stroke="#6d6fc9" stroke-width="3.5" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"></path>
+          <path d="M175 270 C182 270 186 268 189 266 C195 255 200 245 200 235 L200 175 C199 168 198 164 196 161 C200 157 205 155 210 154" stroke="#2e9e4f" stroke-width="4" vector-effect="non-scaling-stroke"></path>
+          <g stroke="#4b5563" stroke-width="1.5" stroke-dasharray="6 6" style="opacity: {{mapDist}}; transition: opacity 600ms">
+            <path d="M577 338 C480 300 350 230 224 189" vector-effect="non-scaling-stroke"></path>
+            <path d="M577 338 C430 270 250 170 78 130" vector-effect="non-scaling-stroke"></path>
+          </g>
+        </g>
+          <path d="M707 380 C740 365 770 352 800 340 C840 322 880 300 920 282 C960 266 1000 256 1047 250 C1100 246 1160 250 1220 262 C1280 274 1340 290 1400 296" stroke="#a7adb3" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+          <path d="M241 231 C265 232 285 233 301 235 C340 243 370 250 392 256 C430 268 460 285 490 298 C515 309 530 318 546 323 C560 327 570 329 581 330 C600 332 615 334 630 336 C645 340 660 345 672 350 C685 358 697 368 707 378 C730 392 750 404 770 413 C795 420 815 422 840 424 C865 426 890 428 910 431 C935 436 958 442 980 448 C1005 455 1028 461 1050 469 C1075 480 1098 492 1120 504 C1145 517 1168 528 1190 539 C1215 553 1238 568 1260 581 C1285 594 1308 603 1330 609 C1355 615 1380 620 1400 623" stroke="#f2b200" stroke-width="5.5" vector-effect="non-scaling-stroke"></path>
+          <path d="M707 380 C710 395 712 408 714 420 C718 432 722 444 724 455 C722 468 717 480 714 490 C715 515 716 538 717 560 C718 600 720 645 721 692" stroke="#f2b200" stroke-width="4.5" vector-effect="non-scaling-stroke"></path>
+        <g style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)">
+          <path d="M305 290 C340 302 375 314 406 326 C445 345 485 370 525 385 C555 393 585 395 609 396 C640 402 675 414 700 424 C708 427 715 429 721 430" stroke="#d6243a" stroke-width="3.5" stroke-dasharray="2 6" vector-effect="non-scaling-stroke"></path>
+          <path d="M854 424 C875 410 895 400 910 392 C945 360 985 325 1015 301 C1040 284 1065 274 1082 270 C1090 262 1095 250 1096 235" stroke="#d6243a" stroke-width="3.5" stroke-dasharray="2 6" vector-effect="non-scaling-stroke"></path>
+          <path d="M263 248 C285 247 300 246 315 245 C340 256 365 268 392 280 C425 294 458 308 490 322 C512 332 533 341 553 350 C572 366 590 383 609 399 C640 420 670 441 700 462 L700 546 L700 692" stroke="#1e90e0" stroke-width="3.5" stroke-dasharray="8 6" vector-effect="non-scaling-stroke"></path>
+        </g>
+      </g>
+      <g transform="translate(263 248)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4.5" fill="#ffffff" stroke="#1e90e0" stroke-width="2"></circle></g></g>
+      <g transform="translate(553 350)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4.5" fill="#ffffff" stroke="#1e90e0" stroke-width="2"></circle></g></g>
+      <g transform="translate(700 546)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4.5" fill="#ffffff" stroke="#1e90e0" stroke-width="2"></circle></g></g>
+      <g transform="translate(483 230)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Bekasi</text></g></g>
+      <g transform="translate(728 360)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="-8" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Cikampek</text></g></g>
+      <g transform="translate(609 158)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Rengasdengklok</text></g></g>
+      <g transform="translate(662 83)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Sungaibuntu</text></g></g>
+      <g transform="translate(774 188)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Pasirputih</text></g></g>
+      <g transform="translate(742 489)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Purwakarta</text></g></g>
+      <g transform="translate(630 560)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="middle" font-size="13" font-weight="500" fill="#6b7280">Waduk Jatiluhur</text></g></g>
+      <g transform="translate(137 620)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><path d="M-7 5 L0 -6 L7 5 Z" fill="#c6cdb8" stroke="#9aa38c" stroke-linejoin="round"></path><text x="11" y="4" text-anchor="start" font-size="12" font-weight="500" fill="#6b7280">Gn. Salak</text></g></g>
+      <g transform="translate(298 660)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><path d="M-7 5 L0 -6 L7 5 Z" fill="#c6cdb8" stroke="#9aa38c" stroke-linejoin="round"></path><text x="11" y="4" text-anchor="start" font-size="12" font-weight="500" fill="#6b7280">Gn. Pangrango</text></g></g>
+      <g transform="translate(520 300) rotate(22)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="-10" text-anchor="middle" font-size="13" font-weight="600" fill="#946400">Tol Jakarta–Cikampek</text></g></g>
+      <g transform="translate(735 600)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="13" font-weight="600" fill="#946400">Tol Purbaleunyi</text></g></g>
+      <g transform="translate(880 300) rotate(-24)" style="opacity: {{mapL1}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="-8" text-anchor="middle" font-size="13" font-weight="500" fill="#6b7280">Jalan Nasional 1 (Pantura)</text></g></g>
+      <g transform="translate(224 189)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="700" fill="#111827">Jakarta</text></g></g>
+      <g transform="translate(236 150)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="11" font-weight="500" fill="#6b7280">Jakarta Utara</text></g></g>
+      <g transform="translate(150 176)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="11" font-weight="500" fill="#6b7280">Jakarta Barat</text></g></g>
+      <g transform="translate(282 204)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="11" font-weight="500" fill="#6b7280">Jakarta Timur</text></g></g>
+      <g transform="translate(205 258)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="11" font-weight="500" fill="#6b7280">Jakarta Selatan</text></g></g>
+      <g transform="translate(42 200)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Tangerang</text></g></g>
+      <g transform="translate(40 294)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">BSD City</text></g></g>
+      <g transform="translate(183 365)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Depok</text></g></g>
+      <g transform="translate(196 441)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Cibinong</text></g></g>
+      <g transform="translate(168 518)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Bogor</text></g></g>
+      <g transform="translate(78 128)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><rect x="-13" y="-13" width="26" height="26" rx="4" fill="#1f6fb8"></rect><path d="M0 -8 L1.6 -1.5 L8 1.5 L8 3.2 L1.6 1.6 L1.2 6 L3.4 7.6 L-3.4 7.6 L-1.2 6 L-1.6 1.6 L-8 3.2 L-8 1.5 L-1.6 -1.5 Z" fill="var(--c-white)"></path><text x="18" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Bandara Soekarno-Hatta</text></g></g>
+      <g transform="translate(273 80)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><rect x="-13" y="-13" width="26" height="26" rx="4" fill="#1f6fb8"></rect><path d="M0 -6 V7 M-6 1 C-6 6 6 6 6 1 M-3.5 -3 H3.5" fill="none" stroke="var(--c-white)" stroke-width="1.8"></path><circle cy="-7" r="1.6" fill="var(--c-white)"></circle><text x="18" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Pelabuhan Tanjung Priok</text></g></g>
+      <g transform="translate(445 140)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="13" font-weight="600" fill="#c8102e">Outer Ring Road II</text></g></g>
+      <g transform="translate(225 312)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="end" font-size="13" font-weight="700" fill="#2e9e4f">MRT</text></g></g>
+      <g transform="translate(345 240) rotate(16)" style="opacity: {{mapL2}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="-8" text-anchor="middle" font-size="13" font-weight="600" fill="#1479c9">LRT Jabodebek</text></g></g>
+      <g transform="translate(380 312)" style="opacity: {{mapDist}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">±56 km ke pusat Jakarta</text></g></g>
+      <g transform="translate(355 208)" style="opacity: {{mapDist}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">±85 km ke bandara</text></g></g>
+      <g transform="translate(1099 218)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><rect x="-13" y="-13" width="26" height="26" rx="4" fill="#1f6fb8"></rect><path d="M0 -6 V7 M-6 1 C-6 6 6 6 6 1 M-3.5 -3 H3.5" fill="none" stroke="var(--c-white)" stroke-width="1.8"></path><circle cy="-7" r="1.6" fill="var(--c-white)"></circle><text x="0" y="-20" text-anchor="middle" font-size="13" font-weight="500" fill="#374151">Pelabuhan Patimban</text></g></g>
+      <g transform="translate(1316 553)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><rect x="-13" y="-13" width="26" height="26" rx="4" fill="#1f6fb8"></rect><path d="M0 -8 L1.6 -1.5 L8 1.5 L8 3.2 L1.6 1.6 L1.2 6 L3.4 7.6 L-3.4 7.6 L-1.2 6 L-1.6 1.6 L-8 3.2 L-8 1.5 L-1.6 -1.5 Z" fill="var(--c-white)"></path><text x="13" y="-22" text-anchor="end" font-size="13" font-weight="500" fill="#374151">Bandara Kertajati</text></g></g>
+      <g transform="translate(990 501)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Subang</text></g></g>
+      <g transform="translate(1047 250)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="20" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Pamanukan</text></g></g>
+      <g transform="translate(1106 448)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><circle r="4" fill="#6b7480" stroke="#ffffff" stroke-width="1.5"></circle><text x="10" y="4" text-anchor="start" font-size="13" font-weight="500" fill="#374151">Cadasngampar</text></g></g>
+      <g transform="translate(975 340)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="13" font-weight="600" fill="#c8102e">Tol ke Pelabuhan Patimban</text></g></g>
+      <g transform="translate(470 360) rotate(25)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="18" text-anchor="middle" font-size="13" font-weight="600" fill="#c8102e">Tol Jakarta–Cikampek II Selatan</text></g></g>
+      <g transform="translate(735 645)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="4" text-anchor="start" font-size="13" font-weight="600" fill="#1479c9">Kereta cepat Jakarta–Bandung</text></g></g>
+      <g transform="translate(1095 492) rotate(27)" style="opacity: {{mapL3}}; transition: opacity 600ms var(--ease-standard)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)"><text x="0" y="-12" text-anchor="middle" font-size="13" font-weight="600" fill="#946400">Tol Cikopo–Palimanan</text></g></g>
+      <rect x="-1400" y="-700" width="4200" height="2100" fill="#ffffff" style="opacity: {{mapDim}}; transition: opacity 600ms var(--ease-standard); pointer-events: none"></rect>
+      <g transform="translate(577 338)"><g style="transform: scale({{mapInv}}); transition: transform 1100ms var(--ease-standard)">
+        <g class="k-map-photo" style="opacity: {{mapPhoto}}; transition: opacity 600ms var(--ease-standard)">
+          <clipPath id="k-aerial-clip"><rect x="16" y="-252" width="360" height="180" rx="6"></rect></clipPath>
+          <rect x="12" y="-256" width="368" height="188" rx="8" fill="var(--c-white)"></rect>
+          <image href="./assets/graha-kiic.jpg" x="16" y="-252" width="360" height="180" preserveAspectRatio="xMidYMid slice" clip-path="url(#k-aerial-clip)"></image>
+          <path d="M24 -68 V-54" stroke="var(--c-white)" stroke-width="3"></path>
+        </g>
+        <filter id="k-pin-shadow" x="-30%" y="-40%" width="160%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#7a0505" flood-opacity="0.35"></feDropShadow></filter>
+        <circle class="k-pin-wave" r="10" fill="var(--c-red-500)"></circle>
+        <circle class="k-pin-wave k-pin-wave-2" r="10" fill="var(--c-red-500)"></circle>
+        <circle r="11" fill="var(--c-red-500)" stroke="var(--c-white)" stroke-width="3.5" filter="url(#k-pin-shadow)"></circle>
+        <circle class="k-pin-core" r="3.5" fill="var(--c-white)"></circle>
+        <g class="k-pin-badge" filter="url(#k-pin-shadow)">
+          <path d="M16 2 V-44 a10 10 0 0 1 10 -10 H150 a10 10 0 0 1 10 10 V-8 a10 10 0 0 1 -10 10 Z" fill="var(--c-red-500)"></path>
+          <image href="./assets/db8af0eb73d7d6723446e862b0917f2c.png" x="30" y="-46" width="116" height="40" preserveAspectRatio="xMidYMid meet"></image>
+        </g>
+      </g></g>
+      </g>
+    </svg>
+    <div class="k-map-panel k-map-panel-about k-container relative grid h-full content-end pb-8 lg:content-center lg:pb-0" data-on="{{mapAboutOn}}" aria-hidden="{{mapAboutHidden}}">
+      <div class="k-map-card grid gap-4 rounded p-6 lg:p-8">
+        <p class="k-eyebrow-red">Tentang KIIC</p>
+        <div class="grid gap-2">
+          <h2 id="map-title-about" class="text-fg-inverse" style="font-size: 24px; line-height: 1.3; font-weight: 700">Kawasan Industri Terbaik di Indonesia, Karawang International Industrial City</h2>
+          <p style="font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--c-red-300)">Kebanggaan KIIC, menjangkau tiap sudut.</p>
+        </div>
+        <p class="text-body-md text-fg-inverse-muted">KIIC adalah Kawasan Industri seluas ±1.500 ha yang beroperasi sejak 1993. Misi kami adalah menyediakan lingkungan kerja yang nyaman bagi para penyewa (tenant) agar dapat fokus pada aktivitas mereka.</p>
+        <dl class="k-map-stats">
+          <div><dt>Luas kawasan</dt><dd>±1.500<span>Ha</span></dd></div>
+          <div><dt>Beroperasi sejak</dt><dd>1993</dd></div>
+          <div><dt>Listrik PLN, dua arah</dt><dd>500<span>kV</span></dd></div>
+          <div><dt>Pekerja di kawasan</dt><dd>±60.000</dd></div>
+        </dl>
+        <div class="flex gap-2" aria-hidden="true">
+          <sc-for list="{{mapDots}}" as="d" hint-placeholder-count="4"><span class="h-1 flex-1 rounded-full" style="background: {{d.bg}}"></span></sc-for>
+        </div>
+        <a href="#" class="k-btn k-btn-primary" style="justify-self: start" tabindex="{{mapAboutTab}}">Unduh katalog KIIC <svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v10M6 9l4 4 4-4M4 16h12"></path></svg></a>
+      </div>
+    </div>
+    <div class="k-map-panel k-map-panel-dock k-map-dock-wrap" data-on="{{mapStoryOn}}" aria-hidden="{{mapStoryHidden}}">
+      <div class="k-map-dock">
+        <div class="k-map-dock-main">
+          <div class="grid gap-2 {{mapTextAnim}}">
+            <p class="text-label text-fg-inverse-muted k-num">{{mapStep}} / 3</p>
+            <h2 id="map-title" class="text-h3 text-fg-inverse">{{mapTitle}}</h2>
+            <p class="text-body-md text-fg-inverse-muted" style="max-width: 72ch">{{mapText}}</p>
+          </div>
+          <div class="k-map-dock-side">
+            <div class="flex gap-2" style="width: 180px" aria-hidden="true">
+              <sc-for list="{{mapDots}}" as="d" hint-placeholder-count="4"><span class="h-1 flex-1 rounded-full" style="background: {{d.bg}}"></span></sc-for>
+            </div>
+            <a href="#" class="k-btn k-btn-inverse" tabindex="{{mapStoryTab}}">Akses dan lokasi</a>
+          </div>
+        </div>
+        <ul class="k-map-legend" aria-label="Keterangan peta">
+          <sc-for list="{{mapLegend}}" as="l" hint-placeholder-count="6"><li style="opacity: {{l.op}}"><span class="k-map-legend-sw" style="{{l.sw}}"></span>{{l.label}}</li></sc-for>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="k-section k-on-dark k-prop-sec" id="properti" aria-labelledby="properti-title">
+  <div class="k-container grid gap-12">
+    <div class="k-prop-head">
+      <div class="grid gap-4">
+        <p class="k-eyebrow-red">Properti KIIC</p>
+        <h2 class="text-display-lg text-fg-inverse" id="properti-title">Ruang yang tumbuh bersama operasi Anda</h2>
+      </div>
+      <div class="grid gap-5">
+        <p class="k-prop-sub">Mulai dari gudang siap pakai, unit pabrik dan kantor, hingga lahan di area ekspansi. Semua dikelola satu tim, di satu kawasan yang beroperasi sejak 1993.</p>
+        <p class="k-prop-hint"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"></path></svg>Pilih panel untuk melihat detail</p>
+      </div>
+    </div>
+    <div class="k-xp" role="tablist" aria-label="Jenis properti">
+      <sc-for list="{{propTabs}}" as="t" hint-placeholder-count="3">
+        <article class="k-xp-panel" data-on="{{t.on}}" style="--fit: {{t.fitOn}}; --pos: {{t.pos}}; --pad: {{t.padOn}}">
+          <img class="k-xp-img" src="{{t.img}}" alt="{{t.photo}}">
+          <div class="k-xp-shade" aria-hidden="true"></div>
+          <button class="k-xp-open" role="tab" aria-selected="{{t.selected}}" aria-controls="prop-{{t.id}}" onClick="{{t.pick}}">
+            <span class="k-xp-num">{{t.num}}</span>
+            <span class="k-xp-vtitle">{{t.title}}</span>
+            <span class="k-xp-plus" aria-hidden="true"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4v12M4 10h12"></path></svg></span>
+          </button>
+          <div class="k-xp-body" id="prop-{{t.id}}" role="tabpanel" aria-hidden="{{t.hidden}}">
+            <p class="k-prop-tag">{{t.num}} · {{t.tag}}</p>
+            <h3 class="k-prop-title">{{t.title}}</h3>
+            <p class="k-prop-desc">{{t.desc}}</p>
+            <dl class="k-prop-facts">
+              <div><dt>{{t.f1k}}</dt><dd>{{t.f1v}}</dd></div>
+              <div><dt>{{t.f2k}}</dt><dd>{{t.f2v}}</dd></div>
+            </dl>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="#" class="k-btn k-btn-primary" tabindex="{{t.tab}}">{{t.cta}}</a>
+              <a href="#kunjungan" class="k-btn k-btn-inverse" tabindex="{{t.tab}}">Ajukan kunjungan lokasi</a>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+    <div class="k-prop-foot">
+      <ul class="k-prop-usp">
+        <li><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h14M5 17V8l5-4 5 4v9M8 17v-4h4v4"></path></svg>Skema build-to-suit</li>
+        <li><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="1.5"></rect><path d="M3 8h14M7 2v4M13 2v4"></path></svg>Masa sewa fleksibel</li>
+        <li><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2l6 3v5c0 4-3 7-6 8-3-1-6-4-6-8V5z"></path><path d="M7 10l2 2 4-4"></path></svg>Satu pengelola untuk seluruh kawasan</li>
+      </ul>
+      <a class="k-prop-help-link" href="#kunjungan">Butuh spesifikasi khusus? Diskusikan dengan tim sales <svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="k-section" id="mengapa" aria-labelledby="utilitas-title">
+  <div class="k-container">
+    <div class="k-util-head">
+      <div class="k-section-head">
+        <div style="display: grid; gap: var(--space-4)">
+          <p class="k-eyebrow-red" style="color: var(--c-red-600)">Infrastruktur &amp; Utilitas</p>
+          <h2 class="text-display-lg" id="utilitas-title">Utilitas siap pakai sejak hari pertama</h2>
+        </div>
+        <p>Infrastruktur dasar untuk memulai produksi di Indonesia sudah tersedia di kawasan: listrik, ruas jalan, air industri, gas alam, serta telekomunikasi dan internet.</p>
+      </div>
+      <div class="k-util-nav">
+        <button type="button" class="k-util-btn" aria-label="Utilitas sebelumnya" aria-controls="util-track" disabled="{{utilPrevOff}}" onClick="{{utilPrev}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg></button>
+        <button type="button" class="k-util-btn" aria-label="Utilitas berikutnya" aria-controls="util-track" disabled="{{utilNextOff}}" onClick="{{utilNext}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></button>
+      </div>
+    </div>
+    <ul ref="{{utilRef}}" id="util-track" class="k-util" role="list" aria-roledescription="carousel" aria-label="Utilitas kawasan" tabindex="0">
+      <li aria-roledescription="slide" aria-label="1 dari 5: Listrik"><article class="k-util-card"><div class="k-util-media"><img src="./assets/util-electricity.jpg" alt="Gardu dan jaringan listrik tegangan tinggi PLN di KIIC" width="320" height="320" loading="lazy"><span class="k-util-num" aria-hidden="true">01</span></div><span class="k-util-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2L4 11h5l-1 7 7-9h-5z"/></svg></span><div class="k-util-body"><h3 class="k-util-title">Listrik</h3><p class="k-util-text">Dua kabel tegangan tinggi 500 kV milik PLN saling mencadangkan. KIIC adalah kawasan industri pertama di Indonesia dengan kontrak pasokan prioritas dari PLN.</p><span class="k-util-chip">2 jalur 500 kV, pasokan prioritas</span></div></article></li>
+      <li aria-roledescription="slide" aria-label="2 dari 5: Ruas Jalan"><article class="k-util-card"><div class="k-util-media"><img src="./assets/util-complex.jpg" alt="Ruas jalan kawasan industri KIIC" width="320" height="320" loading="lazy"><span class="k-util-num" aria-hidden="true">02</span></div><span class="k-util-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2L4 18M13 2l3 16M10 3v2.5M10 8.5v3M10 14.5v3"/></svg></span><div class="k-util-body"><h3 class="k-util-title">Ruas Jalan</h3><p class="k-util-text">Sistem drainase air hujan dikaji setiap tahun. Lebih dari 30 tahun sejak Fase 1, tidak ada kerusakan berarti akibat banjir.</p><span class="k-util-chip">Bebas kerusakan banjir sejak Fase 1</span></div></article></li>
+      <li aria-roledescription="slide" aria-label="3 dari 5: Pasokan Air"><article class="k-util-card"><div class="k-util-media"><img src="./assets/util-watersupply.jpg" alt="Kilang air industri dan waduk di KIIC" width="320" height="320" loading="lazy"><span class="k-util-num" aria-hidden="true">03</span></div><span class="k-util-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z"/></svg></span><div class="k-util-body"><h3 class="k-util-title">Pasokan Air</h3><p class="k-util-text">Kilang air industri dan air limbah dirancang dan dibangun perusahaan Jepang, didukung dua waduk untuk pasokan cadangan dan darurat.</p><span class="k-util-chip">2 waduk cadangan</span></div></article></li>
+      <li aria-roledescription="slide" aria-label="4 dari 5: Gas Alam"><article class="k-util-card"><div class="k-util-media"><img src="./assets/util-home-naturalgas.jpg" alt="Saluran pipa gas alam PGN" width="320" height="320" loading="lazy"><span class="k-util-num" aria-hidden="true">04</span></div><span class="k-util-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18a5 5 0 005-5c0-3-2-4.5-3-7-1 2-2.5 2.5-3 1-.5-1 0-2.5 0-4-3 2-4 5.5-4 9a5 5 0 005 6z"/></svg></span><div class="k-util-body"><h3 class="k-util-title">Gas Alam</h3><p class="k-util-text">Saluran pipa gas alam PGN sudah tertanam di dalam kawasan industri KIIC.</p><span class="k-util-chip">Jaringan pipa PGN</span></div></article></li>
+      <li aria-roledescription="slide" aria-label="5 dari 5: Telekomunikasi dan Internet"><article class="k-util-card"><div class="k-util-media"><img src="./assets/util-home-tower.jpg" alt="Menara telekomunikasi di KIIC" width="320" height="320" loading="lazy"><span class="k-util-num" aria-hidden="true">05</span></div><span class="k-util-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5a11 11 0 0115 0M5 10.5a7.5 7.5 0 0110 0M7.5 13.5a4 4 0 015 0"/><circle cx="10" cy="16.2" r=".9" fill="currentColor"/></svg></span><div class="k-util-body"><h3 class="k-util-title">Telekomunikasi dan Internet</h3><p class="k-util-text">Lima perusahaan telekomunikasi menanam kabel serat optik berkualitas tinggi untuk internet berkecepatan tinggi yang stabil.</p><span class="k-util-chip">5 penyedia serat optik</span></div></article></li>
+    </ul>
+    <div class="k-util-bar" aria-hidden="true"><span style="width: {{utilBarW}}; transform: translateX({{utilBarX}})"></span></div>
+    <div class="k-util-foot">
+      <a href="#" class="k-btn k-btn-primary">Detail infrastruktur dan utilitas</a>
+    </div>
+  </div>
+</section>
+
+<section class="k-section bg-surface-subtle" id="lingkungan" aria-labelledby="lingkungan-title">
+  <div class="k-container">
+    <div class="k-section-head">
+      <div style="display: grid; gap: var(--space-4)">
+        <p class="k-eyebrow-red" style="color: var(--c-red-600)">Lingkungan sekitar</p>
+        <h2 class="text-display-lg" id="lingkungan-title">Tenaga kerja dan fasilitas dalam jangkauan 15 menit</h2>
+      </div>
+      <p>KIIC berada di Kabupaten Karawang, Jawa Barat. Sebagian besar pekerja tinggal di pusat Karawang, sekitar 5 km dari kawasan, dengan rumah sakit, perumahan, bank, dan hotel yang terus berkembang.</p>
+    </div>
+    <div class="k-envb">
+      <div class="k-envs">
+        <div class="k-envs-tile is-pop">
+          <img class="k-envs-bg" src="./assets/env-tenaga-kerja.webp?v=2" alt="" aria-hidden="true" loading="lazy">
+          <div class="k-envs-main"><span class="k-envs-kicker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.5"/><circle cx="14" cy="8" r="2"/><path d="M2.5 16c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5M12 12c2.8 0 5 1.6 5 4"/></svg>Tenaga kerja</span><p class="k-envs-label" style="order: 3">Penduduk Kabupaten Karawang</p><p class="k-envs-num" style="margin: 0">2,4<span>juta</span></p></div>
+        </div>
+        <div class="k-envs-tile is-time">
+          <img class="k-envs-bg" src="./assets/env-karawang.webp" alt="" aria-hidden="true" loading="lazy">
+          <div class="k-envs-main"><span class="k-envs-kicker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>Jarak tempuh ±5 km</span><p class="k-envs-label" style="order: 3">Dari KIIC ke pusat Karawang</p><p class="k-envs-num" style="margin: 0">15<span>menit</span></p></div>
+        </div>
+      </div>
+      <div class="k-envb-facs"><article class="k-envb-fac"><span class="k-env-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v12M4 10h12"/></svg></span><h3>Rumah sakit</h3><p>Beberapa rumah sakit, termasuk RSUD, di pusat Karawang.</p></article><article class="k-envb-fac"><span class="k-env-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l7-6 7 6M5 9v7h10V9"/></svg></span><h3>Perumahan</h3><p>Beberapa area perumahan untuk pekerja di sekitar kawasan.</p></article><article class="k-envb-fac"><span class="k-env-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l7-4 7 4M4 8v7M8 8v7M12 8v7M16 8v7M3 16h14"/></svg></span><h3>Bank</h3><p>Kantor cabang bank di area Karawang.</p></article><article class="k-envb-fac"><span class="k-env-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V4h8v13M12 9h4v8M7 7h2M7 10h2M7 13h2"/></svg></span><h3>Hotel dan pusat belanja</h3><p>Fasilitas komersial besar di Karawang Tengah untuk tamu bisnis dan karyawan.</p></article></div>
+      <div class="k-envb-foot">
+        <a href="#" class="k-btn k-btn-primary">Lihat fasilitas sekitar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="k-section k-on-dark k-tq-sec" id="tenant" aria-labelledby="testimoni-title">
+  <div class="k-container k-tq">
+    <div class="k-tq-intro">
+      <p class="k-eyebrow-red">Testimoni tenant</p>
+      <h2 class="text-display-lg text-fg-inverse" id="testimoni-title">Alasan produsen global memilih KIIC</h2>
+      <p class="k-tq-sub">Dengar langsung dari tenant yang menjalankan pabriknya di kawasan kami.</p>
+      <div class="k-tq-tabs" role="tablist" aria-label="Pilih testimoni">
+        <sc-for list="{{testiTabs}}" as="t" hint-placeholder-count="3">
+        <button type="button" class="k-tq-tab" role="tab" id="{{t.tabId}}" aria-controls="testi-panel" aria-selected="{{t.selected}}" tabindex="{{t.tab}}" onClick="{{t.pick}}"><span class="k-tq-av" data-fit="{{t.fit}}"><img src="{{t.logo}}" alt="" width="44" height="44"></span><span><span class="k-tq-tab-name">{{t.name}}</span><span class="k-tq-tab-role">{{t.sector}}</span></span><span class="k-tq-tab-num" aria-hidden="true">{{t.num}}</span></button>
+        </sc-for>
+      </div>
+      <a href="#" class="k-tq-more">Lihat semua tenant<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></a>
+    </div>
+    <figure class="k-tq-card" id="testi-panel" role="tabpanel" aria-labelledby="{{testiTabId}}" style="margin: 0">
+      <div class="{{testiAnim}}">
+        <span class="k-tq-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 7H6a3 3 0 00-3 3v4h4v4h3V7zm11 0h-4a3 3 0 00-3 3v4h4v4h3V7z"/></svg></span>
+        <blockquote class="k-tq-quote"><p>{{testiQuote}}</p></blockquote>
+      </div>
+      <figcaption class="k-tq-foot">
+        <div class="k-tq-who {{testiAnim}}"><span class="k-tq-av" data-fit="{{testiFit}}"><img src="{{testiLogo}}" alt="Logo {{testiName}}" width="56" height="56"></span><div><p class="k-tq-who-name">{{testiName}}</p><p class="k-tq-who-role">Tenant KIIC</p></div></div>
+        <div class="k-tq-nav">
+          <span class="k-tq-count" aria-hidden="true"><b>{{testiNum}}</b> / {{testiTotal}}</span>
+          <button type="button" class="k-util-btn" aria-label="Testimoni sebelumnya" onClick="{{testiPrev}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg></button>
+          <button type="button" class="k-util-btn" aria-label="Testimoni berikutnya" onClick="{{testiNext}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="k-section bg-surface-subtle" id="berita" aria-labelledby="berita-title">
+  <div class="k-container">
+    <div class="k-nw-head">
+      <div style="display: grid; gap: var(--space-4)">
+        <p class="k-eyebrow-red" style="color: var(--c-red-600)">Berita &amp; kegiatan</p>
+        <h2 class="text-display-lg" id="berita-title">Berita dari kawasan</h2>
+      </div>
+      <a href="https://kiic.co.id/id/berita/" class="k-nw-all">Semua berita<span aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></span></a>
+    </div>
+    <div class="k-nw">
+      <article class="k-nw-card">
+        <img src="./assets/news-wh4.jpg" alt="" width="1600" height="900" loading="lazy">
+        <span class="k-nw-cat ">Properti</span>
+        <h3>Serah terima Warehouse 4 KIIC</h3>
+        <div class="k-nw-reveal"><div><div class="k-nw-reveal-in"><p class="k-nw-ex">KIIC resmi menyerahterimakan Warehouse 4 sebagai bagian dari pengembangan fasilitas pendukung industri dan logistik di kawasan.</p><span class="k-nw-more" aria-hidden="true">Baca selengkapnya<span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></span></span></div></div></div>
+        <a class="k-nw-link" href="https://kiic.co.id/id/berita/serah-terima-warehouse-4-kiic/"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Serah terima Warehouse 4 KIIC</span></a>
+      </article>
+      <article class="k-nw-card">
+        <img src="./assets/news-beasiswa.jpg" alt="" width="1600" height="900" loading="lazy">
+        <span class="k-nw-cat is-navy">Komunitas</span>
+        <h3>Program Beasiswa KIIC 2026</h3>
+        <div class="k-nw-reveal"><div><div class="k-nw-reveal-in"><p class="k-nw-ex">KIIC menyalurkan beasiswa Rp299,4 juta untuk 280 pelajar Karawang lewat CSR pilar pendidikan.</p><span class="k-nw-more" aria-hidden="true">Baca selengkapnya<span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></span></span></div></div></div>
+        <a class="k-nw-link" href="https://kiic.co.id/id/berita/program-beasiswa-kiic-tahun-2026/"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Program Beasiswa KIIC 2026</span></a>
+      </article>
+      <article class="k-nw-card">
+        <img src="./assets/news-sport.jpg" alt="" width="1600" height="900" loading="lazy">
+        <span class="k-nw-cat is-navy">Komunitas</span>
+        <h3>KIIC Sport Tournament ke-24</h3>
+        <div class="k-nw-reveal"><div><div class="k-nw-reveal-in"><p class="k-nw-ex">Ajang olahraga tahunan yang diikuti 100 perusahaan tenant untuk mempererat kebersamaan dan sportivitas.</p><span class="k-nw-more" aria-hidden="true">Baca selengkapnya<span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></span></span></div></div></div>
+        <a class="k-nw-link" href="https://kiic.co.id/id/berita/sport-tournament-2026/"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">KIIC Sport Tournament ke-24</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="k-cta k-on-dark" id="kunjungan" aria-labelledby="cta-title">
+  <img class="k-cta-bg" src="./assets/cta-sales.webp" alt="" aria-hidden="true" width="2000" height="700" loading="lazy">
+  <div class="k-container">
+    <div class="k-cta-in">
+      <p class="k-eyebrow-red">Kunjungan lokasi</p>
+      <h2 id="cta-title">Lihat langsung kawasan sebelum memutuskan</h2>
+      <p class="k-cta-sub">Tim penjualan akan mengatur kunjungan lokasi sesuai kebutuhan lahan, gudang, atau unit komersial Anda.</p>
+      <div class="k-cta-btns"><a href="#" class="k-btn k-btn-primary k-btn-lg"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Ajukan kunjungan lokasi</a><a href="#" class="k-btn k-btn-inverse k-btn-lg"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M6 9l4 4 4-4M4 16h12"/></svg>Unduh katalog</a></div>
+      <div class="k-cta-contacts">
+        <p class="k-cta-contacts-t">Atau hubungi tim Sales &amp; Marketing</p>
+        <a class="k-cta-c" href="tel:+6281113407225"><span aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L12 10.5l4 1.5v3a2 2 0 01-2 2A12 12 0 012 5a2 2 0 012-2z"/></svg></span><span><small>Telepon</small><b>+62 811 1340 7225</b></span></a>
+        <a class="k-cta-c" href="https://wa.me/6281113407225" target="_blank" rel="noopener"><span aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 16.5l1-3.5a7 7 0 112.6 2.6z"/><path d="M7.5 7.5c0 2.5 2.5 5 5 5l1-1.5-1.8-.9-.8.8a4 4 0 01-1.8-1.8l.8-.8-.9-1.8z" fill="currentColor" stroke="none"/></svg></span><span><small>WhatsApp</small><b>+62 811 1340 7225</b></span></a>
+        <a class="k-cta-c" href="mailto:sales@kiic.co.id"><span aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M3 5.5l7 5.5 7-5.5"/></svg></span><span><small>Email</small><b>sales@kiic.co.id</b></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="k-ft k-on-dark">
+  <div class="k-ft-in">
+    <div class="k-ft-top">
+      <div class="k-ft-brand">
+        <img src="./assets/db8af0eb73d7d6723446e862b0917f2c.png" alt="KIIC — Karawang International Industrial City" width="171" height="66">
+        <p class="k-ft-name">Karawang International Industrial City</p>
+        <p class="k-ft-addr"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg><span>Graha KIIC Lt. 2, Jl. Permata Raya Lot C-1B, Kawasan Industri KIIC, Karawang 41361, Jawa Barat, Indonesia</span></p>
+        <div class="k-ft-social">
+          <a href="https://www.instagram.com/kiic.official/" target="_blank" rel="noopener" aria-label="Instagram KIIC"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4"/><circle cx="10" cy="10" r="3.2"/><circle cx="14.2" cy="5.8" r=".8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/@KIIC.Official" target="_blank" rel="noopener" aria-label="YouTube KIIC"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M18 6.3a2.2 2.2 0 00-1.5-1.6C15.1 4.3 10 4.3 10 4.3s-5.1 0-6.5.4A2.2 2.2 0 002 6.3 23 23 0 001.7 10 23 23 0 002 13.7a2.2 2.2 0 001.5 1.6c1.4.4 6.5.4 6.5.4s5.1 0 6.5-.4a2.2 2.2 0 001.5-1.6 23 23 0 00.3-3.7 23 23 0 00-.3-3.7z" fill="currentColor"/><path d="M8.3 12.4V7.6l4.2 2.4z" fill="var(--c-navy-950)"/></svg></a>
+        </div>
+      </div>
+      <div><h2>Kebanggaan KIIC</h2><ul><li><a href="#mengapa">Infrastruktur dan utilitas</a></li><li><a href="#tentang">Akses dan lokasi</a></li><li><a href="#lingkungan">Fasilitas sekitar</a></li></ul></div>
+      <div><h2>Properti</h2><ul><li><a href="#properti">Sewa gudang</a></li><li><a href="#properti">Pabrik dan kantor</a></li><li><a href="#properti">Area ekspansi</a></li></ul></div>
+      <div><h2>Perusahaan</h2><ul><li><a href="#top">Beranda</a></li><li><a href="#tenant">Perusahaan penyewa</a></li><li><a href="#tentang">Tentang KIIC</a></li><li><a href="#berita">Berita terkini</a></li></ul></div>
+      <div><h2>Hubungi kami</h2><ul class="k-ft-contact">
+        <li><a href="mailto:info@kiic.co.id"><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M3 5.5l7 5.5 7-5.5"/></svg></span>info@kiic.co.id</a></li>
+        <li><a href="https://wa.me/6281113407225" target="_blank" rel="noopener"><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 16.5l1-3.5a7 7 0 112.6 2.6z"/><path d="M7.5 7.5c0 2.5 2.5 5 5 5l1-1.5-1.8-.9-.8.8a4 4 0 01-1.8-1.8l.8-.8-.9-1.8z" fill="currentColor" stroke="none"/></svg></span>+62 811 1340 7225</a></li>
+        <li><a href="tel:+62218901666"><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L12 10.5l4 1.5v3a2 2 0 01-2 2A12 12 0 012 5a2 2 0 012-2z"/></svg></span>+62 21 890 1666</a></li>
+      </ul></div>
+    </div>
+    <div class="k-ft-trust">
+      <div><p>Dikelola bersama</p><div class="k-ft-logos"><span class="k-ft-logo"><img src="./assets/footer/itochu1.jpg" alt="ITOCHU" width="126" height="50" loading="lazy"></span><span class="k-ft-logo"><img src="./assets/footer/sinarmas.jpg" alt="Sinar Mas Group" width="265" height="49" loading="lazy"></span></div></div>
+      <div><p>Sertifikasi</p><div class="k-ft-logos"><span class="k-ft-logo"><img src="./assets/footer/iso-9001.jpg" alt="ISO 9001" width="77" height="50" loading="lazy"></span><span class="k-ft-logo"><img src="./assets/footer/iso-14001.jpg" alt="ISO 14001" width="76" height="50" loading="lazy"></span><span class="k-ft-logo"><img src="./assets/footer/ohsas-18001.jpg" alt="OHSAS 18001" width="95" height="50" loading="lazy"></span></div></div>
+      <div><p>Hotel di kawasan</p><div class="k-ft-logos"><a class="k-ft-logo" href="https://www.purikiic.com/id/" target="_blank" rel="noopener"><img src="./assets/footer/puri-2.webp" alt="Puri KIIC Hotel" width="360" height="80" loading="lazy"></a></div></div>
+    </div>
+  </div>
+  <div class="k-ft-bottom">
+    <div class="k-ft-bottom-in">
+      <p>© 2026 Karawang International Industrial City. Hak cipta dilindungi.</p>
+      <nav aria-label="Tautan footer"><a href="https://kiic.co.id/id/kebijakan-privasi/">Kebijakan privasi</a><a href="#top" class="k-ft-top-btn">Kembali ke atas<span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5L10 7l5.5 5.5"/></svg></span></a></nav>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{fabOpen}}" hint-placeholder-val="{{ true }}">
+  <div class="k-fab k-fab-open" role="complementary" aria-label="Aksi cepat">
+    <button type="button" class="k-fab-x" aria-label="Sembunyikan tombol cepat" onClick="{{fabClose}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <a class="k-fab-btn is-cat" href="#"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 2.5H6A1.5 1.5 0 004.5 4v12A1.5 1.5 0 006 17.5h3.5M11.5 2.5l4 4M11.5 2.5v4h4M15.5 6.5V9"/><path d="M7.5 9.5h4M7.5 12.5h2"/><circle cx="14" cy="14" r="2.4"/><path d="M15.8 15.8l1.7 1.7"/></svg>Download Katalog</a>
+    <a class="k-fab-btn is-wa" href="https://wa.me/6281113407225" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 16.5l1-3.5a7 7 0 112.6 2.6z"/><path d="M7.5 7.5c0 2.5 2.5 5 5 5l1-1.5-1.8-.9-.8.8a4 4 0 01-1.8-1.8l.8-.8-.9-1.8z" fill="currentColor" stroke="none"/></svg>Chat WhatsApp</a>
+  </div>
+</sc-if>
+<sc-if value="{{fabMini}}" hint-placeholder-val="{{ false }}">
+  <div class="k-fab-mini" role="complementary" aria-label="Aksi cepat">
+    <button type="button" aria-label="Tampilkan tombol cepat" onClick="{{fabShow}}"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg></button>
+    <a href="#" aria-label="Download katalog"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 2.5H6A1.5 1.5 0 004.5 4v12A1.5 1.5 0 006 17.5h3.5M11.5 2.5l4 4M11.5 2.5v4h4M15.5 6.5V9"/><path d="M7.5 9.5h4M7.5 12.5h2"/><circle cx="14" cy="14" r="2.4"/><path d="M15.8 15.8l1.7 1.7"/></svg></a>
+    <a class="is-wa" href="https://wa.me/6281113407225" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 16.5l1-3.5a7 7 0 112.6 2.6z"/><path d="M7.5 7.5c0 2.5 2.5 5 5 5l1-1.5-1.8-.9-.8.8a4 4 0 01-1.8-1.8l.8-.8-.9-1.8z" fill="currentColor" stroke="none"/></svg></a>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"headerState":{"editor":"enum","options":["auto","transparan","floating"],"default":"auto","section":"Header"},"floatingStyle":{"editor":"enum","options":["solid","blur"],"default":"solid","section":"Header"},"petaTahap":{"editor":"enum","options":["scroll","tentang","1","2","3"],"default":"scroll","section":"Peta"},"$preview":{"width":1440,"height":7900}}'>
+class Component extends DCLogic {
+  state = { mapStage: 0, mapNoPin: false, prop: 'gudang', open: null, search: false, langOpen: false, mobile: false, query: '', lang: 'ID', scrolled: false, heroPaused: false, heroMuted: true, heroVideoReady: false, heroSlide: 0, fab: true, heroInView: true, testi: 0, utilPrevOff: true, utilNextOff: false, utilBarW: 60, utilBarX: 0 };
+
+
+  _setMapSection = (el) => { this._mapSection = el; };
+  _setHeroVideo = (el) => { this._heroVideo = el; };
+  _setHero = (el) => { this._hero = el; };
+  _setUtil = (el) => {
+    if (this._util === el) return;
+    this._util?.removeEventListener('scroll', this._onUtil);
+    this._util = el;
+    el?.addEventListener('scroll', this._onUtil, { passive: true });
+  };
+  // Sync counter, arrows and progress bar with the carousel's scroll position
+  _onUtil = () => {
+    const el = this._util; if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const next = {
+      utilPrevOff: el.scrollLeft < 4,
+      utilNextOff: el.scrollLeft > max - 4,
+      utilBarW: (el.clientWidth / el.scrollWidth) * 100,
+      utilBarX: max > 0 ? (el.scrollLeft / max) * (100 / ((el.clientWidth / el.scrollWidth) || 1) - 100) : 0,
+    };
+    if (Object.keys(next).some((k) => Math.abs(+next[k] - +this.state[k]) > 0.05)) this.setState(next);
+  };
+  _utilGo = (dir) => {
+    const el = this._util; if (!el) return;
+    const card = el.firstElementChild, step = card.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || 0);
+    el.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
+  // The video only plays on slide 1; leaving it pauses, returning resumes unless the visitor paused it
+  _heroGo = (i) => {
+    const n = (i + 3) % 3;
+    if (n === this.state.heroSlide) return;
+    this._heroCmd(n === 0 && !this.state.heroPaused ? 'playVideo' : 'pauseVideo');
+    this.setState({ heroSlide: n });
+  };
+  _heroCmd = (func, args = []) => this._heroVideo?.contentWindow?.postMessage(JSON.stringify({ event: 'command', func, args }), '*');
+
+  componentDidMount() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.setState({ heroPaused: true });
+    if (window.innerHeight > 1600) {
+      this.setState({ mapNoPin: true });
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+        this._mTimer = setInterval(() => this.setState({ mapStage: (this.state.mapStage + 1) % 4 }), 4200);
+    }
+    this._onScroll = () => {
+      const y = window.scrollY > 40;
+      if (y !== this.state.scrolled) this.setState({ scrolled: y });
+      const sec = this._mapSection;
+      if (sec && !this.state.mapNoPin) {
+        const r = sec.getBoundingClientRect(), stickyH = Math.min(window.innerHeight, 900);
+        const p = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - stickyH)));
+        const stage = p < 0.25 ? 0 : p < 0.5 ? 1 : p < 0.75 ? 2 : 3;
+        if (stage !== this.state.mapStage) this.setState({ mapStage: stage });
+      }
+    };
+    // Pause the hero video while it is scrolled out of view; resume on return unless the visitor paused it
+    if (this._hero && 'IntersectionObserver' in window) {
+      this._heroObs = new IntersectionObserver(([e]) => {
+        if (!this.state.heroPaused && this.state.heroSlide === 0) this._heroCmd(e.isIntersecting ? 'playVideo' : 'pauseVideo');
+        if (e.isIntersecting !== this.state.heroInView) this.setState({ heroInView: e.isIntersecting });
+      }, { threshold: 0.15 });
+      this._heroObs.observe(this._hero);
+    }
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onUtil);
+    this._onUtil();
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onUtil);
+    this._util?.removeEventListener('scroll', this._onUtil);
+    clearInterval(this._mTimer);
+    this._heroObs?.disconnect();
+  }
+
+  renderVals() {
+    const s = this.state;
+    const mode = this.props.headerState ?? 'auto';
+    const scrolled = mode === 'floating' ? true : mode === 'transparan' ? false : s.scrolled;
+    const panel = !!s.open || s.search || s.mobile;
+    const solid = scrolled || panel;
+    const blur = solid && !panel && (this.props.floatingStyle ?? 'solid') === 'blur';
+    const testiList = [
+      { logo: './assets/logo-toyota.png', fit: 'cover', name: 'PT Toyota Motor Manufacturing Indonesia', sector: 'Otomotif', quote: '“Awalnya, kami memulai operasi di Sunter, dekat Jakarta. Pabrik di Sunter menjadi terlalu kecil bagi kami. Agar bisa sedikit memperluas, kami merasa wilayah timur akan lebih baik, karena selama ini kami mengalami kemacetan lalu lintas yang serius. Saat mencari, kami menemukan KIIC dan kami pun memulai kegiatan di sana.”' },
+      { logo: './assets/logo-kawai.png', fit: 'contain', name: 'PT Kawai Indonesia', sector: 'Alat musik', quote: '“Awalnya, kami mengimpor kayu dari Indonesia untuk memproduksi piano. Dari hubungan ini, kami mempertimbangkan untuk memproduksi piano di Indonesia selain mengimpor kayu. Itulah alasan kami mendirikan basis operasi kami di sini. Menurut saya, orang-orang di sini pekerja keras. Mereka juga cakap.”' },
+      { logo: './assets/logo-fujita.png', fit: 'contain', name: 'PT Fujita Indonesia', sector: 'Suku cadang kendaraan roda dua', quote: '“Perusahaan kami memproduksi suku cadang kendaraan roda dua. Tentunya, Indonesia adalah pasar yang potensial untuk masa depan. Terlebih lagi, Indonesia sangat pro-Jepang dibandingkan negara-negara lain. Dan sebagian besar penduduknya menyukai orang asing. Karena alasan-alasan inilah kami memilih beroperasi di Indonesia.”' },
+    ];
+    const ti = s.testi % testiList.length;
+    const heroList = [
+      { eyebrow: 'Karawang International Industrial City', title: 'Kawasan industri siap produksi di jantung Jawa Barat', lead: 'Sekitar 1.500 hektare dengan listrik 500 kV dari dua arah, air industri, gas alam, dan akses langsung ke tol Jakarta–Cikampek.', c1: 'Ajukan kunjungan lokasi', c1h: '#kunjungan', c2: 'Lihat properti tersedia', c2h: '#properti' },
+      { eyebrow: 'Akses dan lokasi', title: 'Terhubung langsung ke tol Jakarta–Cikampek', lead: 'Sekitar 56 km dari pusat Jakarta dan 85 km dari Bandara Soekarno-Hatta, dengan jaringan tol menuju Pelabuhan Tanjung Priok, Patimban, dan Bandara Kertajati.', c1: 'Lihat akses dan lokasi', c1h: '#tentang', c2: 'Ajukan kunjungan lokasi', c2h: '#kunjungan' },
+      { eyebrow: 'Sarana dan infrastruktur', title: 'Utilitas lengkap untuk produksi tanpa jeda', lead: 'Listrik 500 kV dari dua jalur PLN, kilang air industri dan air limbah, pipa gas PGN, serta serat optik dari lima penyedia telekomunikasi.', c1: 'Lihat sarana dan infrastruktur', c1h: '#mengapa', c2: 'Ajukan kunjungan lokasi', c2h: '#kunjungan' },
+    ];
+    const hs = s.heroSlide, hero = heroList[hs];
+    const closed = { open: null, search: false, langOpen: false, mobile: false };
+
+    const pages = [
+      { t: 'Infrastruktur dan utilitas', s: 'Pride of KIIC', k: 'listrik 500 kv pln air limbah ipal gas pgn fiber internet drainase banjir' },
+      { t: 'Akses dan lokasi', s: 'Pride of KIIC', k: 'tol jakarta cikampek bandara soekarno hatta jarak karawang' },
+      { t: 'Fasilitas sekitar', s: 'Pride of KIIC', k: 'rumah sakit perumahan bank mall hotel' },
+      { t: 'Sewa gudang', s: 'Properti', k: 'warehouse build-to-suit bts gudang 4' },
+      { t: 'Pabrik, kantor, dan function hall', s: 'Properti', k: 'unit komersial sewa kantor pabrik' },
+      { t: 'Area ekspansi', s: 'Properti', k: 'lahan baru ekspansi' },
+      { t: 'Tenant', s: 'Perusahaan', k: 'toyota kawai fujita testimoni tenant' },
+      { t: 'Tentang KIIC', s: 'Perusahaan', k: 'itochu sinar mas iso sejarah 1993 profil' },
+      { t: 'Berita', s: 'Perusahaan', k: 'beasiswa serah terima gudang turnamen berita' },
+      { t: 'Ajukan kunjungan lokasi', s: 'Kontak', k: 'sales kontak whatsapp kunjungan survei' },
+      { t: 'Unduh katalog', s: 'Kontak', k: 'katalog brosur pdf download' },
+    ];
+    const q = s.query.trim().toLowerCase();
+    const results = q ? pages.filter((p) => (p.t + ' ' + p.k).toLowerCase().includes(q)) : [];
+    const langList = [
+      { code: 'EN', flag: "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3CclipPath id=%22c%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2212%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path=%22url(%23c)%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23012169%22/%3E%3Cpath d=%22M0 0l24 24M24 0L0 24%22 stroke=%22%23fff%22 stroke-width=%225%22/%3E%3Cpath d=%22M0 0l24 24M24 0L0 24%22 stroke=%22%23C8102E%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M12 0v24M0 12h24%22 stroke=%22%23fff%22 stroke-width=%227%22/%3E%3Cpath d=%22M12 0v24M0 12h24%22 stroke=%22%23C8102E%22 stroke-width=%224%22/%3E%3C/g%3E%3C/svg%3E", short: 'EN', label: 'English', lang: 'en' },
+      { code: 'ID', flag: "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3CclipPath id=%22c%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2212%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path=%22url(%23c)%22%3E%3Crect width=%2224%22 height=%2212%22 fill=%22%23CE1126%22/%3E%3Crect y=%2212%22 width=%2224%22 height=%2212%22 fill=%22%23fff%22/%3E%3C/g%3E%3C/svg%3E", short: 'ID', label: 'Bahasa Indonesia', lang: 'id' },
+      { code: 'JP', flag: "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3CclipPath id=%22c%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2212%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path=%22url(%23c)%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23fff%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225.2%22 fill=%22%23BC002D%22/%3E%3C/g%3E%3C/svg%3E", short: '日本語', label: '日本語', lang: 'ja' },
+      { code: 'CN', flag: "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3CclipPath id=%22c%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2212%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path=%22url(%23c)%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23DE2910%22/%3E%3Cpolygon fill=%22%23FFDE00%22 points=%227,3.5 8.2,7.1 12,7.1 8.9,9.3 10.1,12.9 7,10.7 3.9,12.9 5.1,9.3 2,7.1 5.8,7.1%22/%3E%3Ccircle cx=%2213%22 cy=%224%22 r=%221%22 fill=%22%23FFDE00%22/%3E%3Ccircle cx=%2215%22 cy=%226.5%22 r=%221%22 fill=%22%23FFDE00%22/%3E%3Ccircle cx=%2215%22 cy=%229.7%22 r=%221%22 fill=%22%23FFDE00%22/%3E%3Ccircle cx=%2213%22 cy=%2212%22 r=%221%22 fill=%22%23FFDE00%22/%3E%3C/g%3E%3C/svg%3E", short: '中文', label: '中文（简体）', lang: 'zh-Hans' },
+      { code: 'KR', flag: "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cdefs%3E%3CclipPath id=%22c%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2212%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path=%22url(%23c)%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%23fff%22/%3E%3Cpath d=%22M7.5 12a4.5 4.5 0 019 0 2.25 2.25 0 01-4.5 0 2.25 2.25 0 00-4.5 0z%22 fill=%22%23CD2E3A%22/%3E%3Cpath d=%22M16.5 12a4.5 4.5 0 01-9 0 2.25 2.25 0 014.5 0 2.25 2.25 0 004.5 0z%22 fill=%22%230047A0%22/%3E%3Cg stroke=%22%23000%22 stroke-width=%221.1%22%3E%3Cpath d=%22M3.2 6.6l2.4-2.4M4.1 7.5l2.4-2.4M5 8.4l2.4-2.4%22/%3E%3Cpath d=%22M16.6 4.2l2.4 2.4M17.5 3.3l2.4 2.4M18.4 7.5l2.4-2.4%22/%3E%3Cpath d=%22M3.2 17.4l2.4 2.4M4.1 16.5l2.4 2.4M5 15.6l2.4 2.4%22/%3E%3Cpath d=%22M16.6 19.8l2.4-2.4M17.5 20.7l2.4-2.4M18.4 16.5l2.4 2.4%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E", short: '한국어', label: '한국어', lang: 'ko' },
+    ];
+    const current = langList.find((l) => l.code === s.lang);
+    const propList = [
+      { id: 'gudang', tag: 'Gudang', title: 'Sewa gudang', desc: 'Gudang siap pakai dan gudang distribusi bertingkat. Butuh spesifikasi khusus? Kami bangun sesuai kebutuhan (build-to-suit).', photo: 'Foto udara gudang logistik KIIC', cta: 'Lihat sewa gudang',
+        img: './assets/prop-gudang.jpg', pos: 'center 60%',
+        facts: [{ k: 'Beroperasi sejak', v: '2015' }, { k: 'Skema', v: 'Siap pakai, build-to-suit' }] },
+      { id: 'komersial', tag: 'Komersial', title: 'Pabrik, kantor & function hall', desc: 'Unit siap huni untuk produksi, kantor perwakilan, hingga acara perusahaan, dengan masa sewa yang fleksibel.', photo: 'Unit pabrik dan kantor siap sewa di KIIC', cta: 'Lihat unit komersial',
+        img: './assets/prop-komersial.jpg', pos: 'center 40%',
+        facts: [{ k: 'Tipe unit', v: 'Pabrik, kantor, function hall' }, { k: 'Masa sewa', v: 'Fleksibel' }] },
+      { id: 'ekspansi', tag: 'Ekspansi', title: 'Area ekspansi 110 ha', desc: 'Lahan industri baru yang rampung Agustus 2023, lengkap dengan gudang tambahan dan depot kontainer.', photo: 'Peta tahapan kawasan KIIC: Phase I–III dan area ekspansi Stage 4–5', cta: 'Lihat area ekspansi',
+        img: './assets/prop-ekspansi.jpg', pos: 'center 35%',
+        facts: [{ k: 'Luas ekspansi', v: '±110 Ha' }, { k: 'Konstruksi selesai', v: 'Agustus 2023' }] },
+    ];
+    const curProp = propList.find((p) => p.id === s.prop) || propList[0];
+
+    return {
+      propTabs: propList.map((p, i) => {
+        const on = p.id === curProp.id;
+        return { ...p, num: String(i + 1).padStart(2, '0'), on: String(on), selected: String(on), hidden: String(!on), tab: on ? '0' : '-1',
+          fitOn: p.fit || 'cover', padOn: p.pad || '0px',
+          f1k: p.facts[0].k, f1v: p.facts[0].v, f2k: p.facts[1].k, f2v: p.facts[1].v,
+          pick: () => this.setState({ prop: p.id }) };
+      }),
+      mapSectionRef: this._setMapSection,
+      mapSecH: s.mapNoPin ? 'min(100vh, 900px)' : '3500px',
+      ...(() => {
+        const forced = { tentang: 0, '1': 1, '2': 2, '3': 3 }[this.props.petaTahap ?? 'scroll'];
+        const stage = forced ?? s.mapStage;
+        // Stage 0 is the "Tentang KIIC" intro; stages 1–3 are the access story (st 0–2)
+        const st = Math.max(0, stage - 1);
+        const wins = [[250, 90, 700, 400], [400, 220, 420, 220], [-80, -20, 1040, 514], [-209, -105, 1818, 900]];
+        const [x, y, w, h] = wins[stage];
+        const k = Math.min(1400 / w, 692 / h);
+        // Stage 0 leaves room for the left card; stages 1–3 centre above the bottom dock
+        const offX = stage === 0 ? 120 : 0, offY = stage === 0 ? 0 : -50;
+        const tx = 700 - (x + w / 2) * k + offX, ty = 346 - (y + h / 2) * k + offY;
+        return {
+          mapStep: st + 1,
+          mapTransform: `translate(${tx}px, ${ty}px) scale(${k})`,
+          mapInv: 1 / k,
+          mapAboutOn: String(stage === 0), mapStoryOn: String(stage > 0),
+          mapAboutHidden: String(stage !== 0), mapStoryHidden: String(stage === 0),
+          mapAboutTab: stage === 0 ? '0' : '-1', mapStoryTab: stage > 0 ? '0' : '-1',
+          mapTitleId: stage === 0 ? 'map-title-about' : 'map-title',
+          // Alternate keyframe names so the text fade restarts on every stage change
+          mapTextAnim: stage % 2 ? 'k-map-text-a' : 'k-map-text-b',
+          mapDim: stage === 0 ? 0.55 : 0, mapPhoto: stage === 0 ? 1 : 0,
+          mapL1: 1, mapL2: stage >= 2 ? 1 : 0, mapL3: stage >= 3 ? 1 : 0, mapDist: stage === 2 ? 1 : 0,
+          mapTitle: ['Di koridor tol Jakarta–Cikampek', 'Terhubung ke Jakarta, bandara, dan pelabuhan', 'Akses baru ke timur dan selatan'][st],
+          mapText: [
+            'KIIC berada tepat di jalur tol Jakarta–Cikampek, di antara Bekasi dan Cikampek, dengan Waduk Jatiluhur di sebelah selatan.',
+            'Pusat Jakarta sekitar 56 km dan Bandara Soekarno-Hatta sekitar 85 km dari kawasan. Pelabuhan Tanjung Priok terjangkau lewat jaringan tol dan ring road.',
+            'Pelabuhan Patimban, Bandara Kertajati, kereta cepat Jakarta–Bandung, dan ruas tol baru memperluas jangkauan logistik kawasan.',
+          ][st],
+          // Legend items light up as their lines appear on the map
+          mapLegend: [
+            ['Jalan tol', 'height: 4px; background: #f2b200', 1],
+            ['Jalan nasional', 'height: 2px; background: #a7adb3', 1],
+            ['Tol dan ring road baru', 'height: 0; border-top: 3px dotted #d6243a', 2],
+            ['LRT, kereta bandara', 'height: 3px; background: #6d6fc9', 2],
+            ['MRT Jakarta', 'height: 3px; background: #2e9e4f', 2],
+            ['Kereta cepat Jakarta–Bandung', 'height: 0; border-top: 3px dashed #1e90e0', 3],
+          ].map(([label, sw, from]) => ({ label, sw, op: stage >= from ? 1 : 0.35 })),
+          mapDots: [0, 1, 2, 3].map((i) => ({ bg: i <= stage ? 'var(--color-brand-red)' : 'var(--color-line-inverse)' })),
+        };
+      })(),
+      hdrBg: blur && !s.open ? 'rgba(255, 255, 255, 0.78)' : solid ? 'var(--color-surface-page)' : 'transparent',
+      hdrFilter: blur && !s.open ? 'blur(16px) saturate(180%)' : 'none',
+      hdrShadow: solid && !s.open ? 'var(--shadow-sm)' : 'none',
+      hdrBorder: solid && !s.open ? 'var(--color-line-default)' : 'transparent',
+      hdrScrimCls: solid ? '' : 'k-hdr-scrim',
+      logoSrc: './assets/logo-kiic.svg',
+      linkCls: solid ? 'k-nav-link' : 'k-nav-link text-fg-inverse hover:text-fg-inverse',
+      iconCls: solid ? 'k-icon-btn' : 'k-icon-btn text-fg-inverse hover:bg-navy-800 hover:text-fg-inverse',
+      langCls: solid ? 'k-btn k-btn-ghost k-btn-sm text-fg-primary' : 'k-btn k-btn-ghost k-btn-sm text-fg-inverse hover:bg-navy-800',
+      scrimOn: panel,
+      isPride: s.open === 'pride', isProp: s.open === 'prop',
+      prideExpanded: String(s.open === 'pride'), propExpanded: String(s.open === 'prop'),
+      search: s.search, searchExpanded: String(s.search),
+      mobile: s.mobile, mobileExpanded: String(s.mobile),
+      langOpen: s.langOpen, langExpanded: String(s.langOpen),
+      langCode: current.code, langLabel: current.label, langFlag: current.flag,
+      langs: langList.map((l) => ({ ...l, checked: String(l.code === s.lang),
+        chipCls: l.code === s.lang ? 'k-btn k-btn-secondary k-btn-sm' : 'k-btn k-btn-outline k-btn-sm',
+        pick: () => this.setState({ lang: l.code, langOpen: false }) })),
+      query: s.query,
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      showPopular: !q,
+      popular: ['Gudang', 'Listrik', 'Tol', 'Kunjungan'].map((label) => ({ label, pick: () => this.setState({ query: label }) })),
+      results, resultCount: results.length, hasResults: results.length > 0, noResults: !!q && results.length === 0,
+      togglePride: () => this.setState({ ...closed, open: s.open === 'pride' ? null : 'pride' }),
+      toggleProp: () => this.setState({ ...closed, open: s.open === 'prop' ? null : 'prop' }),
+      heroRef: this._setHero,
+      utilRef: this._setUtil,
+      // Hero already carries the sales contacts, so the quick actions appear once it scrolls away
+      fabOpen: s.fab && !s.heroInView, fabMini: !s.fab && !s.heroInView,
+      fabClose: () => this.setState({ fab: false }),
+      fabShow: () => this.setState({ fab: true }),
+      testiTabs: testiList.map((t, i) => ({ ...t, num: String(i + 1).padStart(2, '0'), tabId: 'testi-tab-' + i, selected: String(i === ti), tab: i === ti ? '0' : '-1', pick: () => this.setState({ testi: i }) })),
+      testiTabId: 'testi-tab-' + ti,
+      testiQuote: testiList[ti].quote,
+      testiName: testiList[ti].name,
+      testiLogo: testiList[ti].logo,
+      testiFit: testiList[ti].fit,
+      testiNum: String(ti + 1).padStart(2, '0'),
+      testiTotal: String(testiList.length).padStart(2, '0'),
+      testiAnim: ti % 2 ? 'k-tq-a' : 'k-tq-b',
+      testiPrev: () => this.setState({ testi: (ti + testiList.length - 1) % testiList.length }),
+      testiNext: () => this.setState({ testi: (ti + 1) % testiList.length }),
+      utilPrevOff: s.utilPrevOff,
+      utilNextOff: s.utilNextOff,
+      utilBarW: s.utilBarW + '%',
+      utilBarX: s.utilBarX + '%',
+      utilPrev: () => this._utilGo(-1),
+      utilNext: () => this._utilGo(1),
+      heroSlideN: String(hs), heroS0: String(hs === 0), heroS1: String(hs === 1), heroS2: String(hs === 2), heroIsVideo: hs === 0,
+      heroEyebrow: hero.eyebrow, heroTitle: hero.title, heroLead: hero.lead,
+      heroC1: hero.c1, heroC1h: hero.c1h, heroC2: hero.c2, heroC2h: hero.c2h,
+      heroAnim: 'k-hs-' + hs, heroNum: String(hs + 1).padStart(2, '0'),
+      heroSlideLabel: (hs + 1) + ' dari 3: ' + hero.eyebrow,
+      heroPrev: () => this._heroGo(hs - 1), heroNext: () => this._heroGo(hs + 1),
+      heroDots: heroList.map((h, i) => ({ cur: String(i === hs), label: 'Slide ' + (i + 1) + ': ' + h.eyebrow, go: () => this._heroGo(i) })),
+      heroVideoRef: this._setHeroVideo,
+      heroVideoSrc: 'https://www.youtube-nocookie.com/embed/gvssvnzzueE?autoplay=1&mute=1&loop=1&playlist=gvssvnzzueE&controls=0&disablekb=1&fs=0&iv_load_policy=3&playsinline=1&rel=0&cc_load_policy=0&enablejsapi=1',
+      heroVideoOpacity: s.heroVideoReady ? 1 : 0,
+      heroVideoLoaded: () => {
+        // Hide YouTube's auto captions; reveal the video once the start-up title overlay has faded
+        [800, 2000, 4000].forEach((t) => setTimeout(() => this._heroCmd('unloadModule', ['captions']), t));
+        if (this.state.heroPaused) setTimeout(() => this._heroCmd('pauseVideo'), 600);
+        setTimeout(() => this.setState({ heroVideoReady: true }), 3500);
+      },
+      heroPaused: s.heroPaused, heroPlaying: !s.heroPaused, heroPausedAttr: String(s.heroPaused),
+      heroPauseLabel: s.heroPaused ? 'Putar video' : 'Jeda video',
+      heroMuted: s.heroMuted, heroUnmuted: !s.heroMuted, heroMutedAttr: String(s.heroMuted),
+      heroSoundLabel: s.heroMuted ? 'Nyalakan suara video' : 'Matikan suara video',
+      toggleHeroSound: () => { this._heroCmd(s.heroMuted ? 'unMute' : 'mute'); this.setState({ heroMuted: !s.heroMuted }); },
+      toggleHeroVideo: () => { this._heroCmd(s.heroPaused ? 'playVideo' : 'pauseVideo'); this.setState({ heroPaused: !s.heroPaused }); },
+      toggleSearch: () => this.setState({ ...closed, search: !s.search }, () => document.getElementById('k-search-input')?.focus()),
+      toggleLang: () => this.setState({ ...closed, langOpen: !s.langOpen }),
+      toggleMobile: () => this.setState({ ...closed, mobile: !s.mobile }),
+      closeAll: () => this.setState(closed),
+      onKey: (e) => { if (e.key === 'Escape') this.setState(closed); },
+    };
+  }
+}
+</script>
+</body>
+</html>

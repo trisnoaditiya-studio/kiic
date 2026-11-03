@@ -1,0 +1,45 @@
+<!-- @name: Navbar + Mega Menu | @desc: Sticky, tinggi 72px. Mega menu untuk menu yang punya sub-halaman (Mengapa KIIC, Properti). Buka dengan klik, tutup dengan Esc atau klik di luar. Mobile: daftar menu bertingkat lewat tombol menu. -->
+<header class="k-nav" style="position:relative">
+  <div class="k-nav-inner">
+    <a href="#" class="k-nav-logo"><span class="k-nav-logo-mark" aria-hidden="true">K</span>KIIC</a>
+    <nav class="k-nav-menu" aria-label="Menu utama">
+      <button class="k-nav-link" data-k-toggle="mega" aria-expanded="false" aria-controls="mega-why">Mengapa KIIC <svg class="k-nav-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="k-nav-link" data-k-toggle="mega" aria-expanded="false" aria-controls="mega-prop">Properti <svg class="k-nav-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <a class="k-nav-link" href="#">Tenant</a>
+      <a class="k-nav-link" href="#" aria-current="page">Tentang KIIC</a>
+      <a class="k-nav-link" href="#">Berita</a>
+    </nav>
+    <div class="k-nav-actions">
+      <a href="#" class="k-btn k-btn-primary max-md:hidden">Ajukan kunjungan</a>
+      <button class="k-nav-toggle" data-k-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
+    </div>
+  </div>
+  <div class="k-mega" id="mega-why" hidden>
+    <div class="k-mega-inner">
+      <div class="k-mega-intro grid gap-2"><p class="text-h4">Mengapa KIIC</p><p class="text-body-sm text-fg-secondary">Infrastruktur, akses, dan lingkungan untuk operasional jangka panjang.</p></div>
+      <div class="k-mega-list">
+        <a class="k-mega-item" href="#"><strong>Infrastruktur dan utilitas</strong><span>Listrik, air, gas, dan jaringan fiber</span></a>
+        <a class="k-mega-item" href="#"><strong>Akses dan lokasi</strong><span>Tol Jakarta–Cikampek, bandara, pelabuhan</span></a>
+        <a class="k-mega-item" href="#"><strong>Fasilitas dan lingkungan sekitar</strong><span>Rumah sakit, perumahan, bank</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="k-mega" id="mega-prop" hidden>
+    <div class="k-mega-inner">
+      <div class="k-mega-intro grid gap-2"><p class="text-h4">Properti</p><p class="text-body-sm text-fg-secondary">Gudang, pabrik, kantor, dan area ekspansi.</p></div>
+      <div class="k-mega-list">
+        <a class="k-mega-item" href="#"><strong>Sewa gudang</strong><span>Gudang siap pakai dan build-to-suit</span></a>
+        <a class="k-mega-item" href="#"><strong>Pabrik, kantor, dan function hall</strong><span>Unit komersial dengan opsi sewa fleksibel</span></a>
+        <a class="k-mega-item" href="#"><strong>Area ekspansi</strong><span>Pengembangan kawasan berikutnya</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="k-mobile-menu" id="mobile-menu" aria-label="Menu utama mobile" hidden>
+    <a href="#">Mengapa KIIC</a>
+    <div class="k-sub"><a href="#">Infrastruktur dan utilitas</a><a href="#">Akses dan lokasi</a><a href="#">Fasilitas dan lingkungan sekitar</a></div>
+    <a href="#">Properti</a>
+    <div class="k-sub"><a href="#">Sewa gudang</a><a href="#">Pabrik, kantor, dan function hall</a><a href="#">Area ekspansi</a></div>
+    <a href="#">Tenant</a><a href="#">Tentang KIIC</a><a href="#">Berita</a><a href="#">Kontak</a>
+    <div style="padding:var(--space-5)"><a href="#" class="k-btn k-btn-primary" style="width:100%;border:0;padding:0">Ajukan kunjungan lokasi</a></div>
+  </nav>
+</header>

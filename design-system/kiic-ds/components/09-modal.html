@@ -1,0 +1,14 @@
+<!-- @name: Modal | @desc: Native dialog: fokus terkunci, Esc menutup, klik backdrop menutup. Dipakai untuk form unduh katalog. -->
+<button class="k-btn k-btn-secondary" data-k-modal-open="modal-catalog">Unduh katalog</button>
+<dialog class="k-modal" id="modal-catalog" aria-labelledby="modal-catalog-title">
+  <div class="k-modal-head">
+    <div><h2 class="text-h4" id="modal-catalog-title">Unduh katalog digital</h2><p class="text-body-sm text-fg-secondary">Kami kirim tautan unduhan ke email Anda.</p></div>
+    <button class="k-icon-btn" data-k-modal-close aria-label="Tutup"><svg class="k-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+  </div>
+  <form class="k-modal-body" method="dialog">
+    <div class="k-field"><label class="k-label" for="m-name">Nama lengkap</label><input class="k-input" id="m-name" required></div>
+    <div class="k-field"><label class="k-label" for="m-email">Email kantor</label><input class="k-input" id="m-email" type="email" required></div>
+    <div class="k-field"><label class="k-label" for="m-co">Perusahaan</label><input class="k-input" id="m-co" required></div>
+  </form>
+  <div class="k-modal-foot"><button class="k-btn k-btn-ghost" data-k-modal-close>Batal</button><button class="k-btn k-btn-primary">Kirim tautan unduhan</button></div>
+</dialog>
